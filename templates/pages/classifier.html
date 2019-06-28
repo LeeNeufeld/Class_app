@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+   <!-- Instruction Container -->
+<section>
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="text-white">
+        <div class="card-body">
+          <form action="{% url 'classifier' %}" method="POST">
+            {% csrf_token %}
+            {% if questions %}
+             {% for question in questions %}
+                 <div class="card listing-preview">
+                   <h1><textarea position="center" class="text-primary form-control" style="border: none" name="question" onload="$(this).height(20);$(this).height($(this).prop('scrollHeight'))">{{ question.question }}</textarea></h1>
+                 </div>
+             {% endfor %}
+            {% else %}
+              <div class="col-md-12">
+                <p>No Questions</p>
+             </div>
+            {% endif %}
+                
+          
+            {% if random_objects %}
+              {% for random_object in random_objects %}
+                <div class="card listing-preview">
+                  <h1><textarea  text="center" name="random_object" style="border: none" class="text-primary form-control" onload="$(this).height(20);$(this).height($(this).prop('scrollHeight'))">{{ random_object.sentence }}</textarea></h1>
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="col-md-12">
+                <p>No Sentences</p>
+              </div>
+            {% endif %}
+              <input type="hidden" name="userId" value="{{ user_id}}">
+                <div class="card-body">
+                  <button class="btn-success"  type="submit" name="response" value="True"><h1>YES</h1></button>
+                  <button class="btn-danger" type="submit"  name="response" value="False"><h1>NO</h1></button>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+{% endblock %}

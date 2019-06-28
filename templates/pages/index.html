@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome</h1>
+  <!-- Alerts -->
+  {% include 'partials/_alerts.html' %}
+  <div class="col-md-4  text-center">
+    <button class="btn-dark btn-lg btn-block"><a class="nav-link" href="{% url 'login' %}" ><h2>Login</h2></a></button>
+    <button class="btn-info btn-lg btn-block"><a class="nav-link" href="{% url 'register' %}"><h2>Register</h2></a></button>
+  </div>
+{% endblock %}
