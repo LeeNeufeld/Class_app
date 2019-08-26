@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card-body" >
+      <textarea class="form-control"> 
+        The purpose of this app is to have you classify sentences based on the principles of moral foundation theory. The theory is a social psychological theory intended to explain the origins of and variation in human moral reasoning on the basis of innate, modular foundations. The theory proposes six foundations as listed below. To learn more about Moral Foundations Theory you can also click the link.
+      </textarea>
+</div>
+
+<div class="tut">
+  <button type="button" class=" btn-block" data-toggle="modal" data-target="#ModalF1">Care/Harm</button>
+  <button type="button" class="btn-block" data-toggle="modal" data-target="#ModalF2">Fairness/Cheating</button>
+  <button type="button" class="btn-block" data-toggle="modal" data-target="#ModalF3">Loyalty/Betrayal</button>
+  <button type="button" class="btn-block" data-toggle="modal" data-target="#ModalF4">Authority/Subversion</button>
+  <button type="button" class="btn-block" data-toggle="modal" data-target="#ModalF5">Sanctity/Degradation</button>
+  <button type="button" class="btn-block" data-toggle="modal" data-target="#ModalF6">Liberty/Oppression</button>
+</div>
+
+<br>
+<div class="next">
+  <button type="button" class="btn-block" id="next"data-toggle="modal" data-target="#ModalN">Next</button>
+</div>
+
+
+<div class="modal fade" id="ModalF1" tabindex="-1" role="dialog" aria-labelledby="ModalLabelF1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#8C96C6">
+          <h5 class="modal-title" id="ModalLabelF1" style="color: snow">Care/Harm</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+          <div class="modal-body">
+              This foundation is related to our long evolution as mammals with attachment systems and an ability to feel (and dislike) the pain of others. It underlies virtues of kindness, gentleness, and nurturance. 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-toggle="modal" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="ModalF2" tabindex="-1" role="dialog" aria-labelledby="ModalLabelF2" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #8C96C6">
+            <h5 class="modal-title" id="ModalLabelF2" style="color: snow">Fairness/cheating</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+            <div class="modal-body">
+              This foundation is related to the evolutionary process of reciprocal altruism. It generates ideas of justice, rights, and autonomy. 
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="ModalF3" tabindex="-1" role="dialog" aria-labelledby="ModalLabelF3" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #8C96C6">
+              <h5 class="modal-title" id="ModalLabelF3" style="color: snow">Loyalty/betrayal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+              <div class="modal-body">
+                This foundation is related to our long history as tribal creatures able to form shifting coalitions. It underlies virtues of patriotism and self-sacrifice for the group. It is active anytime people feel that it's "one for all, and all for one." 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-toggle="modal" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="ModalF4" tabindex="-1" role="dialog" aria-labelledby="ModalLabelF4" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header" style="background-color: #8C96C6">
+                <h5 class="modal-title" id="ModalLabelF4" style="color: snow">Authority/subversion</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+                <div class="modal-body">
+                  This foundation was shaped by our long primate history of hierarchical social interactions. It underlies virtues of leadership and followership, including deference to legitimate authority and respect for traditions. 
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="ModalF5" tabindex="-1" role="dialog" aria-labelledby="ModalLabelF5" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header" style="background-color: #8C96C6">
+                  <h5 class="modal-title" id="ModalLabelF5" style="color: snow">Sanctity/degradation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                  <div class="modal-body">
+                    This foundation was shaped by the psychology of disgust and contamination. It underlies religious notions of striving to live in an elevated, less carnal, more noble way. It underlies the widespread idea that the body is a temple which can be desecrated by immoral activities and contaminants. 
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-toggle="modal" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="ModalF6" tabindex="-1" role="dialog" aria-labelledby="ModalLabelF6" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" style="background-color: #8C96C6">
+                    <h5 class="modal-title" id="ModalLabelF6" style="color: snow">Liberty/oppression</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                    <div class="modal-body">
+                      This foundation is about the feelings of reactance and resentment people feel toward those who dominate them and restrict their liberty. Its intuitions are often in tension with those of the authority foundation. The hatred of bullies and dominators motivates people to come together, in solidarity, to oppose or take down the oppressor. 
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="ModalN" tabindex="-1" role="dialog" aria-labelledby="ModalLabelN" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header" style="background-color: #8C96C6">
+                        <h5 class="modal-title" id="ModalLabelN" style="color: snow">What's Next</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                        <div class="modal-body">
+                            So now for the million dollar question…… WHAT ARE YOU SUPPOSED TO DO?! Well that's simple, and we’ll go through it together. 
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary"><a class="nav-link" href="{% url 'dashtutorial' %}" >Next</a></button>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+{% endblock %}

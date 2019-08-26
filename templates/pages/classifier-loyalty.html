@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{% url 'classifierloyalty' %}" method="POST" id="classifier2">
+  <div class="col-md-6 mx-auto" >
+    <div class="card-body"  >
+      {% csrf_token %}
+      {% if question %}
+        <h1><textarea position="center" class=" Q form-control" name="question"  readonly>{{ question.question }}</textarea></h1>
+      {% else %}
+        <div class="col-md-12">
+          <p>No Questions</p>
+        </div>
+      {% endif %}          
+      {% if random_objects %}
+        {% for random_object in random_objects %}
+          <h1><textarea  text="center" name="random_object"  class=" form-control" readonly>{{ random_object.sentence }}</textarea></h1>
+        {% endfor %}
+      {% else %}
+        <div class="col-md-12">
+          <p>No Sentences</p>
+        </div>
+      {% endif %}
+      <input type="hidden" name="userId" value="{{ user_id}}">
+      <input type="hidden" name="age" value="{{ age }}">
+      <input type="hidden" name="gender" value="{{ gender }}">
+      <input type="hidden" name="postal_code" value="{{ postal_code }}">
+      <input type="hidden" name="country" value="{{ country }}">
+    </div>
+  </div> 
+</form>
+<div class="response">
+  <button form="classifier2" class="btn-success"  type="submit" name="response"  value="True"><h1>YES</h1></button>
+  <button form ="classifier2" class="btn-danger" type="submit"  name="response" value="False"><h1>NO</h1></button>
+</div>
+{% endblock %}

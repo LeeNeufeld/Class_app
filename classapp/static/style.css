@@ -1,0 +1,140 @@
+body, html {
+   font-family: 'Roboto', sans-serif;
+   background-color: lightgray;
+  }
+  
+.bg {
+  position: fixed; 
+  background-size: cover;
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+    
+}
+
+.bg img {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.foundation.btn-block {
+  background-color: #8C96C6;
+  font-family: 'Roboto', sans-serif;
+  color:white;
+}
+
+
+
+
+
+
+.index.btn-block{
+  background-color: #8C96C6;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+a{
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 0px !important; 
+ 
+}
+
+#classifier1, #classifier2, #classifier3, #classifier4, #classifier5,  #classifier6, #classifier7{
+  padding-top: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+textarea{
+  border: none;
+  overflow: auto;
+  outline: none;
+  box-shadow: none;
+  resize: none; 
+  font-family: 'Roboto', sans-serif;
+  color: black;
+}
+
+textarea[readonly] {
+  border: none;
+  overflow: auto;
+  outline: none;
+  box-shadow: none;
+  resize: none; 
+  font-family: 'Roboto', sans-serif;
+  color: black;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.response{
+  display:flex;
+  justify-content:space-around;
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+  left: 0;
+}
+
+.response button{
+  width: 300px;
+  height: 150px;
+  margin: 5px;
+}
+
+#h1welcome{
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+.tut button{
+  position: relative;
+  margin: 0px;
+  right: 0;
+  left: 0;
+  background-color: #8C96C6;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.next button{
+  position: relative;
+  margin: 0px;
+  right: 0;
+  left: 0;
+  background-color: #6c757d;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+#title{
+  margin-top: 25px;
+}
+
+.Q{
+  font-size: X-large;
+}

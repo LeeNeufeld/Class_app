@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container" >
+    <div class="row">
+        <div class="card-body">
+            <div class="col-md-6 mx-auto">
+                <h4>Please select which Moral Foundation you would like to classify</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mx-auto" style="width: 400px;">   
+    <div class="text-center">
+      <button  class="foundation btn-block " ><a class="nav-link" href="{% url 'classifier' %}"><h2>Care/Harm</h2></a></button>
+      <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'classifierfairness' %}"><h2>Fairness/Cheating</h2></a></button>
+      <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'classifierloyalty' %}"><h2>Loyalty/Betrayal</h2></a></button>
+      <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'classifierauthority' %}"><h2>Authority/Subversion</h2></a></button>
+      <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'classifiersanctity' %}"><h2>Sanctity/Degradation</h2></a></button>
+      <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'classifierliberty' %}"><h2>Liberty/Oppression</h2></a></button>
+    </div>
+</div>
+
+{% endblock %}

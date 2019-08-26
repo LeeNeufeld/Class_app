@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div class="card-body">
+    <div class="mx-auto" style="width: 50px;">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#M1">
+            Begin
+        </button>
+    </div>
+</div>
+
+
+<div class="mx-auto" style="width: 400px;">   
+    <div class="text-center">
+      <button  class="foundation btn-block " ><h2>Care/Harm</h2></button>
+      <button  class="foundation btn-block" ><h2>Fairness/Cheating</h2></button>
+      <button  class="foundation btn-block" ><h2>Loyalty/Betrayal</h2></button>
+      <button  class="foundation btn-block" ><h2>Authority/Subversion</h2></button>
+      <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'tutorial2' %}" ><h2>Sanctity/Degradation</h2></a></button>
+      <button  class="foundation btn-block" ><h2>Liberty/Oppression</h2></button>
+    </div>
+</div>
+
+<!-- Modal 1 -->
+<div class="modal fade" id="M1" tabindex="-1" role="dialog" aria-labelledby="MLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#8C96C6">
+          <h5 class="modal-title" id="MLabel1" style="color: snow">Dashboard</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+          <div class="modal-body">
+              <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'tutorial2' %}" ><h2>Sanctity/Degradation</h2></a></button><br>
+                This is the dashboard. This area will allow you to select which moral foundation you would like to classify. Please click on the "Sanctity/Degradation" button to continue. 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary"><a class="nav-link" href="{% url 'tutorial2' %}" >Next</a></button>
+            </div>
+        </div>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+
+
+
+{% endblock %}

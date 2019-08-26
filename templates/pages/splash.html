@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-6 mx-auto" >
+    <div class="card-body" >
+        <textarea position="center" class=" form-control"  name="question"  readonly>This version has included a splash page for app navigation. Leaderboard functionality to follow in later update. </textarea>
+    </div>
+</div>
+<div class="mx-auto" style="width: 400px;">   
+    <div class="text-center">
+      <button  class=" foundation btn-block" style="height: 150px;"><a class="nav-link" href="{% url 'dashboard' %}"><h2>Classify</h2></a></button>
+    </div>
+</div>
+<div class="response">
+    <button  class=" btn-block" style="margin-top: 0;background-color: #6c757d"><h2>Leader Board</h2></button>
+    <button  class=" btn-block" style="margin-top: 0;background-color: #6c757d"><a class="nav-link" href="{% url 'profile' %}"><h2>Settings</h2></a></button>
+</div>
+{% endblock %}

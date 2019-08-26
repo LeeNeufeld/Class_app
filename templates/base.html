@@ -12,29 +12,33 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
- 
-
+  <link rel="stylesheet" href="C:\Users\LeeNe\Documents\Work\classification_app\classapp\static\fontawesome-free-5.9.0-web\css">
+  <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+  <style>
+      @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+      </style>
     <title></title>
 </head>
 <body>
+    
      <!-- Navbar -->
-     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-          <span class="navbar-toggler-icon"></span>
+     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #8C96C6">
+      <div class="container" >
+          <a href="{% url 'index' %}" class="nav-link"><img src="{% static 'images/ra2_180909-09.png' %}" alt=""  style="width:auto;height:35px;"></a>
+        <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon" ></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse"  id="navbarNavAltMarkup">
           <ul class="navbar-nav ml-auto">
-            <li 
-            {% if '/' == request.path %}
-              class="nav-item active mr-3"
-            {% else %}
-              class="nav-item mr-3" 
-            {% endif %} 
-            >
-              <a class="nav-link" href="{% url 'index' %}">Home</a>
-            </li>
           {% if user.is_authenticated %}
+          <li class="nav-item mr-3">
+              <a href="{% url 'splash' %}" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i> Home
+              </a>
+          <li class="nav-item mr-3">
+            <a href="{% url 'dashboard' %}" class="nav-link">
+              <i class="fas fa-sign-out-alt"></i> Foundations
+            </a>
             <li class="nav-item mr-3">
               <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -44,6 +48,15 @@
                 <input type="hidden">
               </form>
           {% else %}
+          <li 
+          {% if '/' == request.path %}
+            class="nav-item active mr-3"
+          {% else %}
+            class="nav-item mr-3" 
+          {% endif %} 
+          >
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          </li>
             <li 
             {% if 'register' in request.path %}
               class="nav-item active mr-3"
@@ -69,10 +82,19 @@
         </div>
       </div>
     </nav>
-
-    {% block content %} {% endblock %}
+    
+    {% block content %} 
+    
+    {% endblock %}
  
 
-
+    <script>
+        $('textarea').each(function () {
+          this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+        }).on('input', function () {
+          this.style.height = 'auto';
+          this.style.height = (this.scrollHeight) + 'px';
+        });
+      </script>
 </body>
 </html>

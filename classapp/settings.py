@@ -25,13 +25,15 @@ SECRET_KEY = 'm-$t3)yo&kz^4zd$sjxm()aw$+h141ttino1*x+)7j#zjttunp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'localflavor',
     'response.apps.ResponseConfig',
+    'tutorial.apps.TutorialConfig',
     'sentences.apps.SentencesConfig',
     'questions.apps.QuestionsConfig',
     'users.apps.UsersConfig',
@@ -85,9 +87,16 @@ DATABASES = {
         'NAME': 'Class App',
         'USER': 'postgres',
         'PASSWORD': '12345',
-        'HOST':'35.203.126.91'
+        'HOST':'35.203.126.91',
+        'PORT': '5432',
     }
 }
+
+DATABASES['default']['HOST'] = '/cloudsql/sentence-class-app:northamerica-northeast1:classification-app'
+if os.getenv('GAE_INSTANCE'):
+    pass
+else:
+    DATABASES['default']['HOST'] = '35.203.126.91'
 
 
 # Password validation
@@ -129,7 +138,7 @@ USE_TZ = True
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = https://storage.googleapis.com/classapp/static/
+STATIC_URL = 'https://storage.googleapis.com/classapp/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'classapp/static')
 ]

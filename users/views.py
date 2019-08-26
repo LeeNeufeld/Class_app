@@ -3,39 +3,262 @@ from django.http import HttpResponse
 from django.contrib import messages, auth
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from users.forms import CustomUserChangeForm, CustomUserCreationForm
 from response.models import Responses
 from questions.models import Questions
 from sentences.models import ClassSentence
 from users.models import CustomUser
+
 User = get_user_model()
+
+
+
+def editprofile (request):
+        if request.method == 'POST':
+                form = CustomUserChangeForm(request.POST, instance=request.user)
+                if form.is_valid():
+                        form.save()
+                        return redirect ('profile')
+               
+        else:
+                form = CustomUserChangeForm(instance=request.user)
+        args = {'form': form}
+        return render(request, 'pages/editprofile.html', args)
+
+
 def index(request):
  return render(request, 'pages/index.html')
 
 def classifier(request):
     responses = request.POST.get('response')
-    questions = Questions.objects.order_by('?')[0:1]
+    question = Questions.objects.get(id='1')
     random_objects =ClassSentence.objects.order_by('?')[0:1]
     user_id = request.user.id
+    age = request.user.age
+    gender = request.user.gender
+    postal_code = request.user.postal_code
+    country = request.user.country
     context = {
         'random_objects':random_objects,
-        'questions':questions,
+        'question':question,
         'responses':responses,
-        'user_id': user_id
+        'user_id': user_id,
+        'age': age,
+        'gender': gender,
+        'postal_code': postal_code,
+        'country': country
+
     }
     if request.method =='POST':
         if request.user.is_authenticated:
             if request.POST.get('question') and request.POST.get('random_object') and request.POST.get('response'):
-                post=Responses(question=questions, sentence=random_objects, response=responses, userId=user_id)
+                post=Responses(question=question, sentence=random_objects, response=responses, userId=user_id, age=age, gender=gender, postal_code=postal_code, country=country)
                 post.question=request.POST.get('question')
                 post.sentence=request.POST.get('random_object')
                 post.response=request.POST.get('response')
                 post.userId = request.POST.get('userId')
+                post.age = request.POST.get('age')
+                post.gender = request.POST.get('gender')
+                post.postal_code = request.POST.get('postal_code')
+                post.country = request.POST.get('country')
                 post.save()
                 return render(request, 'pages/classifier.html', context)
         else:
             return render(request, 'pages/classifier.html', context)
     else:
         return render(request, 'pages/classifier.html', context)
+
+
+def classifierfairness (request):
+        responses = request.POST.get('response')
+        questionf = Questions.objects.get(id='2')
+        random_objects =ClassSentence.objects.order_by('?')[0:1]
+        user_id = request.user.id
+        age = request.user.age
+        gender = request.user.gender
+        postal_code = request.user.postal_code
+        country = request.user.country
+        contextf = {
+                'random_objects':random_objects,
+                'question':questionf,
+                'responses':responses,
+                'user_id': user_id,
+                'age': age,
+                'gender': gender,
+                'postal_code': postal_code,
+                'country':country
+        }
+        if request.method =='POST':
+                if request.user.is_authenticated:
+                        if request.POST.get('question') and request.POST.get('random_object') and request.POST.get('response'):
+                                post=Responses(question=questionf, sentence=random_objects, response=responses, userId=user_id, age=age, gender=gender, postal_code=postal_code, country=country)
+                                post.question=request.POST.get('question')
+                                post.sentence=request.POST.get('random_object')
+                                post.response=request.POST.get('response')
+                                post.userId = request.POST.get('userId')
+                                post.age = request.POST.get('age')
+                                post.gender = request.POST.get('gender')
+                                post.postal_code = request.POST.get('postal_code')
+                                post.country = request.POST.get('country')
+                                post.save()
+                                return render(request, 'pages/classifier-fairness.html', contextf)
+                else:
+                        return render(request, 'pages/classifier-fairness.html', contextf)
+        else:
+                return render(request, 'pages/classifier-fairness.html', contextf)
+
+def classifierloyalty (request):
+        responses = request.POST.get('response')
+        questionl = Questions.objects.get(id='3')
+        random_objects =ClassSentence.objects.order_by('?')[0:1]
+        user_id = request.user.id
+        age = request.user.age
+        gender = request.user.gender
+        postal_code = request.user.postal_code
+        country = request.user.country
+        contextl = {
+                'random_objects':random_objects,
+                'question':questionl,
+                'responses':responses,
+                'user_id': user_id,
+                'age': age,
+                'gender': gender,
+                'postal_code': postal_code,
+                'country':country
+        }
+        if request.method =='POST':
+                if request.user.is_authenticated:
+                        if request.POST.get('question') and request.POST.get('random_object') and request.POST.get('response'):
+                                post=Responses(question=questionl, sentence=random_objects, response=responses, userId=user_id, age=age, gender=gender, postal_code=postal_code, country=country)
+                                post.question=request.POST.get('question')
+                                post.sentence=request.POST.get('random_object')
+                                post.response=request.POST.get('response')
+                                post.userId = request.POST.get('userId')
+                                post.age = request.POST.get('age')
+                                post.gender = request.POST.get('gender')
+                                post.postal_code = request.POST.get('postal_code')
+                                post.country = request.POST.get('country')
+                                post.save()
+                                return render(request, 'pages/classifier-loyalty.html', contextl)
+                else:
+                        return render(request, 'pages/classifier-loyalty.html', contextl)
+        else:
+                return render(request, 'pages/classifier-loyalty.html', contextl)
+
+def classifierauthority (request):
+        responses = request.POST.get('response')
+        questiona = Questions.objects.get(id='4')
+        random_objects =ClassSentence.objects.order_by('?')[0:1]
+        user_id = request.user.id
+        age = request.user.age
+        gender = request.user.gender
+        postal_code = request.user.postal_code
+        country = request.user.country
+        contexta = {
+                'random_objects':random_objects,
+                'question':questiona,
+                'responses':responses,
+                'user_id': user_id,
+                'age': age,
+                'gender': gender,
+                'postal_code': postal_code,
+                'country':country
+        }
+        if request.method =='POST':
+                if request.user.is_authenticated:
+                        if request.POST.get('question') and request.POST.get('random_object') and request.POST.get('response'):
+                                post=Responses(question=questiona, sentence=random_objects, response=responses, userId=user_id, age=age, gender=gender, postal_code=postal_code, country=country)
+                                post.question=request.POST.get('question')
+                                post.sentence=request.POST.get('random_object')
+                                post.response=request.POST.get('response')
+                                post.userId = request.POST.get('userId')
+                                post.age = request.POST.get('age')
+                                post.gender = request.POST.get('gender')
+                                post.postal_code = request.POST.get('postal_code')
+                                post.country = request.POST.get('country')
+                                post.save()
+                                return render(request, 'pages/classifier-authority.html', contexta)
+                else:
+                        return render(request, 'pages/classifier-authority.html', contexta)
+        else:
+                return render(request, 'pages/classifier-authority.html', contexta)
+
+def classifiersanctity (request):
+        responses = request.POST.get('response')
+        questionS = Questions.objects.get(id='5')
+        random_objects =ClassSentence.objects.order_by('?')[0:1]
+        user_id = request.user.id
+        age = request.user.age
+        gender = request.user.gender
+        postal_code = request.user.postal_code
+        country = request.user.country
+        contextS = {
+                'random_objects':random_objects,
+                'question':questionS,
+                'responses':responses,
+                'user_id': user_id,
+                'age': age,
+                'gender': gender,
+                'postal_code': postal_code,
+                'country':country
+        }
+        if request.method =='POST':
+                if request.user.is_authenticated:
+                        if request.POST.get('question') and request.POST.get('random_object') and request.POST.get('response'):
+                                post=Responses(question=questionS, sentence=random_objects, response=responses, userId=user_id, age=age, gender=gender, postal_code=postal_code, country=country)
+                                post.question=request.POST.get('question')
+                                post.sentence=request.POST.get('random_object')
+                                post.response=request.POST.get('response')
+                                post.userId = request.POST.get('userId')
+                                post.age = request.POST.get('age')
+                                post.gender = request.POST.get('gender')
+                                post.postal_code = request.POST.get('postal_code')
+                                post.country = request.POST.get('country')
+                                post.save()
+                                return render(request, 'pages/classifier-sanctity.html', contextS)
+                else:
+                        return render(request, 'pages/classifier-sanctity.html', contextS)
+        else:
+                return render(request, 'pages/classifier-sanctity.html', contextS)
+
+def classifierliberty (request):
+        responses = request.POST.get('response')
+        questionL = Questions.objects.get(id='6')
+        random_objects =ClassSentence.objects.order_by('?')[0:1]
+        user_id = request.user.id
+        age = request.user.age
+        gender = request.user.gender
+        postal_code = request.user.postal_code
+        country = request.user.country
+        contextL = {
+                'random_objects':random_objects,
+                'question':questionL,
+                'responses':responses,
+                'user_id': user_id,
+                'age': age,
+                'gender': gender,
+                'postal_code': postal_code,
+                'country':country
+        }
+        if request.method =='POST':
+                if request.user.is_authenticated:
+                        if request.POST.get('question') and request.POST.get('random_object') and request.POST.get('response'):
+                                post=Responses(question=questionL, sentence=random_objects, response=responses, userId=user_id, age=age, gender=gender, postal_code=postal_code, country=country)
+                                post.question=request.POST.get('question')
+                                post.sentence=request.POST.get('random_object')
+                                post.response=request.POST.get('response')
+                                post.userId = request.POST.get('userId')
+                                post.age = request.POST.get('age')
+                                post.gender = request.POST.get('gender')
+                                post.postal_code = request.POST.get('postal_code')
+                                post.country = request.POST.get('country')
+                                post.save()
+                                return render(request, 'pages/classifier-liberty.html', contextL)
+                else:
+                        return render(request, 'pages/classifier-liberty.html', contextL)
+        else:
+                return render(request, 'pages/classifier-liberty.html', contextL)
 
 def login(request):
     if request.method == 'POST':
@@ -47,7 +270,7 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'You are logged in')
-            return redirect('classifier')
+            return redirect('splash')
         else:
             messages.error(request, 'User not found')
             return redirect('login')
@@ -86,6 +309,33 @@ def register(request, *args, **kwargs):
                 user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=email, password=password, age=age, country=country, postal_code=postal_code, gender=gender)
                 user.save(*args, **kwargs)
                 messages.success(request, 'Your profile has been updated')
-                return redirect('login')
+                return redirect('dashtutorial')
      else:
         return render(request, 'pages/register.html')
+
+def tutorial (request):
+     return render(request, 'pages/tutorial.html')
+
+def tutorial2 (request):
+     return render(request, 'pages/tutorial2.html')
+
+def test (request):
+        return render(request, 'pages/test.html')
+
+def dashboard (request):
+        return render(request, 'pages/dashboard.html')
+
+def dashtutorial (request):
+        return render(request, 'pages/dashtutorial.html')
+
+def profile (request):
+        args = {'user': request.user}
+        return render(request, 'pages/profile.html', args)
+
+
+
+
+
+
+def splash (request):
+        return render(request, 'pages/splash.html')

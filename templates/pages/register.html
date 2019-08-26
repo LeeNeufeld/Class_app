@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Register</h1>
+
 <!-- Registration Form -->
-<div class="card-body">
-   <!-- Alerts -->
-         {% include 'partials/_alerts.html' %}
+<section id="login" class="py-5" >
+    <div class="container" >
+      <div class="row" >
+        <div class="col-md-6 mx-auto" >
+          <div class="card" >
+            <div class="card-header text-white" style="background-color:#8C96C6">
+              <h4>
+                <i class="fas fa-sign-in-alt"></i> Register </h4>
+            </div>
+<div class="card-body" >
+
          <form action="{% url 'register' %}" method="POST">
               {% csrf_token %}
           <div class="form-group">
@@ -26,15 +34,24 @@
         </div>
         <div class="form-group">
             <label for="gender">Gender</label>
-            <input type="Text" name="gender" class="form-control">
+            <select name="gender" class="form-control">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Non-Binary">Non-Binary</option>
+            </select>
         </div>
         <div class="form-group">
-            <label for="age">Age</label>
-            <input type="int" name="age" class="form-control">
+            <label for="age">Year of birth</label>
+            <select id="year" name="age" class="form-control"></select>
         </div>
         <div class="form-group">
             <label for="country">Country</label>
-            <input type="text" name="country" class="form-control">
+            <select id="country" name="country" class="form-control">
+              <option value="Canada">Canada</option>
+              <option value="USA">USA</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Australia">Australia</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="postal_code">Postal Code</label>
@@ -48,7 +65,22 @@
           <label for="password2">Confirm Password</label>
           <input type="password" name="password2" class="form-control" required>
         </div>
-        <button type="submit" value="Register" class="btn btn-secondary btn-block nav-link" href="{% url 'login' %}">Register</button>
+        <button type="submit" value="Register" class=" btn-secondary btn-block nav-link"  style="font-size: x-large" href="{% url 'login' %}">Register</button>
       </form>
     </div>
+  </section>
+
+  <script>
+    var start = new Date().getFullYear();
+    var end = 1900;
+    var options = "";
+    for(var year = start ; year >=end; year--){
+      options += "<option>"+ year +"</option>";
+    }
+    document.getElementById("year").innerHTML = options;
+  </script>
+
+ 
+
 {% endblock %}
+
