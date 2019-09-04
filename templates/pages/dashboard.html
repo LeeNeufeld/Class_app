@@ -3,24 +3,66 @@
 {% block content %}
 
 
-<div class="container" >
+<div class="container">
+    <div class="row"></div>
     <div class="row">
-        <div class="card-body">
-            <div class="col-md-6 mx-auto">
-                <h4>Please select which Moral Foundation you would like to classify</h4>
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content center">
+                    <h5>Please select which Moral Foundation you would like to classify</h5>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="mx-auto" style="width: 400px;">   
-    <div class="text-center">
-      <button  class="foundation btn-block " ><a class="nav-link" href="{% url 'classifier' %}"><h2>Care/Harm</h2></a></button>
-      <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'classifierfairness' %}"><h2>Fairness/Cheating</h2></a></button>
-      <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'classifierloyalty' %}"><h2>Loyalty/Betrayal</h2></a></button>
-      <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'classifierauthority' %}"><h2>Authority/Subversion</h2></a></button>
-      <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'classifiersanctity' %}"><h2>Sanctity/Degradation</h2></a></button>
-      <button  class="foundation btn-block" ><a class="nav-link" href="{% url 'classifierliberty' %}"><h2>Liberty/Oppression</h2></a></button>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center">
+                <button class="indigo lighten-3 btn-large col 16 s12 wave-effect "><a href="{% url 'classifier' %}">
+                        Care/Harm
+                    </a></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center">
+                <button class="indigo lighten-3 btn-large col 16 s12 wave-effect"><a
+                        href="{% url 'classifierfairness' %}">
+                        Fairness/Cheating
+                    </a></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center">
+                <button class="indigo lighten-3 btn-large col 16 s12 wave-effect"><a
+                        href="{% url 'classifierloyalty' %}">
+                        Loyalty/Betrayal
+                    </a></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center">
+                <button class="indigo lighten-3 btn-large col 16 s12 wave-effect"><a
+                        href="{% url 'classifierauthority' %}">
+                        Authority/Subversion
+                    </a></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center">
+                <button class="indigo lighten-3 btn-large col 16 s12 wave-effectk"><a
+                        href="{% url 'classifiersanctity' %}">
+                        Sanctity/Degradation
+                    </a></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center">
+                <button class="indigo lighten-3 btn-large col 16 s12 wave-effect"><a
+                        href="{% url 'classifierliberty' %}">
+                        Liberty/Oppression
+                    </a></button>
+            </div>
+        </div>
     </div>
 </div>
 

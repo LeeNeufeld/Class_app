@@ -4,131 +4,132 @@
 {% block content %}
 
 <!-- Button trigger modal -->
-<div class="card-body">
-    <div class="mx-auto" style="width: 100px;">
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#Modal">
-    Continue Tutorial
-  </button>
+<div class="container">
+  <div class="row"></div>
+  <div class="row col s12 center">
+    <button class="waves-effect waves-light btn pulse modal-trigger" data-target="Modal">
+      Continue Tutorial
+    </button>
   </div>
+</div>
+
+<!-- Instruction Container -->
+<div class="container">
+  <div class="row">
+    <form class="col s12">
+      <div class="input-field col s12 white">
+        <textarea class="materialize-textarea"
+          readonly>Does this relate to the foundation of Sanctity/Degradation?</textarea>
+      </div>
+    </form>
   </div>
-
-   <!-- Instruction Container -->
-<form id="classifier7">
-  <div class="col-md-6 mx-auto">
-    <div class="card-body" >
-      <h1><textarea position="center" class=" Q form-control" style="border: none" name="question" readonly>Does this relate to the foundation of Sanctity/Degradation?</textarea></h1>
-      <h1><textarea text="center" name="random_object" style="border: none" class="form-control" readonly>The building has been declared a historical site. In order to preserve it for future generations.</textarea></h1>
-    </div>
-  </div>      
-</form>
-
+  <div class="row">
+    <form class="col s12">
+      <div class="input-field col s12 white">
+        <textarea class="materialize-textarea"
+          readonly>The building has been declared a historical site. In order to preserve it for future generations.</textarea>
+      </div>
+    </form>
+  </div>
+</div>
 
 
 
-      
+
+
+
 <!-- Modal 1 -->
-<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color:#8C96C6">
-        <h5 class="modal-title" id="ModalLabel" style="color: snow">Question</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-        <div class="modal-body">
-          <section>
-            <div class="col-md-6 mx-auto" style="border: none" >
-              <div class="card-body" style="border: none" >
-                    <form>
-                          <h5>Does this relate to the foundation of Sanctity/Degradation?</h5>   
-                    </form>
-              </div>
-            </section>
-              This is an example of a question that you will see. Your job is to decide if the following sentence relates to this question. 
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-dismiss="modal" data-target="#Modal2">Next</button>
-          </div>
+
+<div id="Modal" class="modal">
+  <div class="modal-content">
+    <h5>Does this relate to the foundation of Sanctity/Degradation?</h5>
+    <p> This is an example of a question that you will see. Your job is to decide if the following sentence relates
+      to
+      this question.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-trigger  indigo lighten-3 waves-effect waves-light btn" data-target="Modal2">Next</a>
+  </div>
+</div>
+
+
+<!-- Modal 2 -->
+<div id="Modal2" class="modal">
+  <div class="modal-content">
+    <h5>The building has been declared a historical site. In order to preserve it for future
+      generations.</h5>
+    <p> This is an example of a sentence that you will see. Does this sentence relate to the question that was
+      asked?
+      Close this window and click "YES", "NO" or "UNSURE" to find out.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-close indigo lighten-3 waves-effect waves-light btn">Close</a>
+  </div>
+</div>
+
+<!-- Modal 3 -->
+
+<div id="Modal3" class="modal">
+  <div class="modal-content">
+    <h5>CORRECT!!</h5>
+    <p> This sentence does relate to the Moral Foundation of Sanctity/Degradation! Now that you have some idea of what
+      to expect you can login and start classifying sentences.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="{% url 'login' %}" class=" modal-close indigo lighten-3 waves-effect waves-light btn">Login</a>
+  </div>
+</div>
+
+<!-- Modal 4 -->
+
+<div id="Modal4" class="modal">
+  <div class="modal-content">
+    <h5>WRONG!!!</h5>
+    <p> Seriously? You may want to review the question and sentence again and then click yes.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-close indigo lighten-3 waves-effect waves-light btn">Close</a>
+  </div>
+</div>
+
+<!-- Modal 5 -->
+
+<div id="Modal5" class="modal">
+  <div class="modal-content">
+    <h5>NOT QUITE...</h5>
+    <p> I think you can be sure. You may want to review the question and sentence again and then click yes.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-close indigo lighten-3 waves-effect waves-light btn">Close</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="maybe">
+    <div class="row">
+      <div class="col s12 center">
+        <a class="btn modal-trigger col s12 grey lighten-1 waves-effect waves-light " data-target="Modal5"><i
+            class="material-icons right">help_outline</i>Unsure</a>
       </div>
     </div>
   </div>
-
-
-      
-      <!-- Modal 2 -->
-      <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="ModalLabel2" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header" style="background-color: #8C96C6">
-              <h5 class="modal-title" id="ModalLabel2" style="color: snow">Sentence</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <section></form>
-                    <div class="col-md-6 mx-auto">
-                      <div class="card-body">
-                            <form>
-                                  <h5>The building has been declared a historical site. In order to preserve it for future generations.</h5>
-                            </form>
-                          </div>
-                          </div>
-                          This is an example of a sentence that you will see. Does this sentence relate to the question that was asked? Close this window and click "YES" or "NO" to find out.
-                        </div>
-                  </section> 
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
-            </div>
-        </div>
-            </div>
-          </div>
-        </div>
-      
-                <!-- Modal 3 -->
-                <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="ModalLabel3" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header" style="background-color: #8C96C6">
-                          <h5 class="modal-title" id="ModalLabel3" style="color: snow">CORRECT!!</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          This sentence does relate to the Moral Foundation of Sanctity/Degradation! Now that you have some idea of what to expect you can login and start classifying sentences.  
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary"><a class="nav-link" href="{% url 'login' %}" >Next</a></button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-      
-                      <!-- Modal 4 -->
-            <div class="modal fade" id="Modal4" tabindex="-1" role="dialog" aria-labelledby="ModalLabel4" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header" style="background-color: #8C96C6">
-                      <h5 class="modal-title" id="ModalLabel4" style="color: snow">WRONG!!!</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      Seriously? You may want to review the question and sentence again and then click yes. 
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+</div>
+<div class=" container">
   <div class="response">
-    <button class="btn-success"  data-toggle="modal" data-target="#Modal3"><h1>YES</h1></button>
-    <button class="btn-danger" data-toggle="modal" data-target="#Modal4"><h1>NO</h1></button>
+    <a class="btn green modal-trigger waves-effect waves-light" data-target="Modal3">
+      <div>
+        <i class=" material-icons">check_circle_outline</i>
+        <span>Yes</span>
+      </div>
+    </a>
+    <a class="btn red modal-trigger waves-effect waves-light" data-target="Modal4">
+      <div>
+        <i class=" material-icons">highlight_off</i>
+        <span>No</span>
+      </div>
+    </a>
   </div>
+</div>
 
 
 {% endblock %}

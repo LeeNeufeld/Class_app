@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from django.contrib.messages import constants as messages
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -31,7 +32,9 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'materializecssform',
     'localflavor',
+    'django_countries',
     'response.apps.ResponseConfig',
     'tutorial.apps.TutorialConfig',
     'sentences.apps.SentencesConfig',
@@ -82,12 +85,12 @@ WSGI_APPLICATION = 'classapp.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-   'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Class App',
         'USER': 'postgres',
         'PASSWORD': '12345',
-        'HOST':'35.203.126.91',
+        'HOST': '35.203.126.91',
         'PORT': '5432',
     }
 }
@@ -136,18 +139,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'https://storage.googleapis.com/classapp/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'classapp/static')
 ]
 
-#Messages
-from django.contrib.messages import constants as messages
+# Messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
-    
+
 }
 
 try:

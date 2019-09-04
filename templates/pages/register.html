@@ -3,84 +3,138 @@
 {% block content %}
 
 <!-- Registration Form -->
-<section id="login" class="py-5" >
-    <div class="container" >
-      <div class="row" >
-        <div class="col-md-6 mx-auto" >
-          <div class="card" >
-            <div class="card-header text-white" style="background-color:#8C96C6">
-              <h4>
-                <i class="fas fa-sign-in-alt"></i> Register </h4>
-            </div>
-<div class="card-body" >
-
-         <form action="{% url 'register' %}" method="POST">
+<section id="login" class="py-5">
+  <div class="container">
+    <div class="row"></div>
+    <div class="row">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-content">
+            <h5>
+              Register
+            </h5>
+            <form action="{% url 'register' %}" method="POST">
               {% csrf_token %}
-          <div class="form-group">
-          <label for="first_name">First Name</label>
-          <input type="text" name="first_name" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="last_name">Last Name</label>
-          <input type="text" name="last_name" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" name="email" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="username">Confirm Email</label>
-            <input type="email" name="username" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender</label>
-            <select name="gender" class="form-control">
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Non-Binary">Non-Binary</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="age">Year of birth</label>
-            <select id="year" name="age" class="form-control"></select>
-        </div>
-        <div class="form-group">
-            <label for="country">Country</label>
-            <select id="country" name="country" class="form-control">
-              <option value="Canada">Canada</option>
-              <option value="USA">USA</option>
-              <option value="United Kingdom">United Kingdom</option>
-              <option value="Australia">Australia</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="postal_code">Postal Code</label>
-            <input type="text" name="postal_code" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="password2">Confirm Password</label>
-          <input type="password" name="password2" class="form-control" required>
-        </div>
-        <button type="submit" value="Register" class=" btn-secondary btn-block nav-link"  style="font-size: x-large" href="{% url 'login' %}">Register</button>
-      </form>
-    </div>
-  </section>
+              <div class="input-field col s12">
+                <input type="text" name="first_name" required>
+                <label for="first_name">First Name</label>
+              </div>
+              <div class="input-field col s12">
+                <input type="text" name="last_name" required>
+                <label for="last_name">Last Name</label>
+              </div>
+              <div class="input-field col s12">
+                <input type="email" name="email" required>
+                <label for="email">Email</label>
+              </div>
+              <div class="input-field col s12">
+                <input type="email" name="username" required>
+                <label for="username">Confirm Email</label>
+              </div>
+              <div class="input-field col s12">
+                <select name="gender">
+                  <option value="" disabled selected>---</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Non-Binary">Non-Binary</option>
+                </select>
+                <label for="gender">Gender</label>
+              </div>
+              <div class="input-field col s12">
+                <select name="education_attainment">
+                  <option value="" disabled selected>---</option>
+                  <option value="Some high school">Some high school</option>
+                  <option value="High school diploma or equivalent">High school diploma or equivalent</option>
+                  <option value="Trades certification">Trades certification</option>
+                  <option value="College diploma">College diploma</option>
+                  <option value="Bachelor’s degree">Bachelor’s degree</option>
+                  <option value="Graduate degree">Graduate degree</option>
+                  <option value="Professional degree">Professional degree</option>
+                </select>
+                <label for="education_attainment">Education Attainment</label>
+              </div>
+              <div class="input-field col s12">
+                <select id="year" name="age"></select>
+                <label for="age">Year of birth</label>
+              </div>
+              <div class="input-field col s12">
+                <select name="income">
+                  <option value="" disabled selected>---</option>
+                  <option value="$0 - $34,999">$0 - $34,999</option>
+                  <option value="$35,000 - $49,999">$35,000 - $49,999</option>
+                  <option value="$50,000 - $69,999">$50,000 - $69,999</option>
+                  <option value="$70,000 - $99,999">$70,000 - $99,999</option>
+                  <option value="$100,000 - $149,999">$100,000 - $149,999</option>
+                  <option value="$150,000 - $249,999">$150,000 - $249,999</option>
+                  <option value="$250,000 or more">$250,000 or more</option>
+                </select>
+                <label for="income">Income</label>
+              </div>
+              <div class="input-field col s12">
+                <input type="text" name="address">
+                <label for="address">Address</label>
+              </div>
+              <div class="input-field col s12">
+                <label for="city">City</label>
+                <input type="text" name="city">
+              </div>
+              <div class="input-field col s12">
+                <select id="country" name="country">
+                  <option value="" disabled selected>---</option>
+                  <option value="Canada">Canada</option>
+                  <option value="USA">USA</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Australia">Australia</option>
+                </select>
+                <label for="country">Country</label>
+              </div>
+              <div class="input-field col s12">
+                <input type="text" name="postal_code">
+                <label for="postal_code">Postal Code</label>
+              </div>
+              <div class="input-field col s12">
+                {% load countries %}
+                {% get_countries as countries %}
+                <select name="nationality">
+                  <option value="" disabled selected>---</option>
+                  {% for country in countries %}
+                  <option value="{{ country.code }}">{{ country.name }}</option>
+                  {% endfor %}
+                </select>
+                <label for="nationality">Nationality</label>
+              </div>
+              <div class="input-field col s12">
+                <input type="text" name="ethnicity">
+                <label for="ethnicity">Ethnicity</label>
+              </div>
+              <div class="input-field col s12">
+                <input type="password" name="password" required>
+                <label for="password">Password</label>
+              </div>
+              <div class="input-field col s12">
+                <input type="password" name="password2" required>
+                <label for="password2">Confirm Password</label>
+              </div>
+              <button type="submit" value="Register" class=" btn indigo lighten-3 waves-effect waves-light"
+                href="{% url 'login' %}">Register</button>
+            </form>
+          </div>
+</section>
 
-  <script>
-    var start = new Date().getFullYear();
-    var end = 1900;
-    var options = "";
-    for(var year = start ; year >=end; year--){
-      options += "<option>"+ year +"</option>";
-    }
-    document.getElementById("year").innerHTML = options;
-  </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
+  });
+  var start = new Date().getFullYear();
+  var end = 1900;
+  var options = "";
+  for (var year = start; year >= end; year--) {
+    options += "<option>" + year + "</option>";
+  }
+  document.getElementById("year").innerHTML = options;
+</script>
 
- 
+
 
 {% endblock %}
-

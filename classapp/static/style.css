@@ -1,6 +1,6 @@
 body, html {
    font-family: 'Roboto', sans-serif;
-   background-color: lightgray;
+   background-color: white;
   }
   
 .bg {
@@ -93,12 +93,44 @@ textarea[readonly] {
   bottom: 0px;
   right: 0;
   left: 0;
+  padding-right: 5.5px;
+  padding-left: 5.5px;
+}
+.respad{
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-.response button{
-  width: 300px;
+.response a{
+  width: 200px;
   height: 150px;
   margin: 5px;
+  font-size: 3rem;
+}
+.response button{
+  width: 200px;
+  height: 150px;
+  margin: 5px;
+  font-size: 3rem;
+}
+
+.response a i{
+  margin: 30px;
+  margin-bottom: 0px;
+  font-size: 5rem;
+}
+.response button i{
+  margin: 30px;
+  margin-bottom: 0px;
+  font-size: 5rem;
+}
+
+.maybe  {
+  position: absolute;
+  bottom: 145px;
+  right: 0;
+  left: 0;
+
 }
 
 #h1welcome{
@@ -136,5 +168,20 @@ textarea[readonly] {
 }
 
 .Q{
-  font-size: X-large;
+  font-size: 18px;
+}
+
+nav > .brand-logo {
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 4rem;
+  padding: 0;
+}
+
+.indbut{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }

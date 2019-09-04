@@ -1,100 +1,153 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
-  <link rel="stylesheet" href="C:\Users\LeeNe\Documents\Work\classification_app\classapp\static\fontawesome-free-5.9.0-web\css">
+  <link rel="stylesheet"
+    href="C:\Users\LeeNe\Documents\Work\classification_app\classapp\static\fontawesome-free-5.9.0-web\css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'materialize.css' %}">
   <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
-  <style>
-      @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-      </style>
-    <title></title>
-</head>
-<body>
-    
-     <!-- Navbar -->
-     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #8C96C6">
-      <div class="container" >
-          <a href="{% url 'index' %}" class="nav-link"><img src="{% static 'images/ra2_180909-09.png' %}" alt=""  style="width:auto;height:35px;"></a>
-        <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-          <span class="navbar-toggler-icon" ></span>
-        </button>
-        <div class="collapse navbar-collapse"  id="navbarNavAltMarkup">
-          <ul class="navbar-nav ml-auto">
-          {% if user.is_authenticated %}
-          <li class="nav-item mr-3">
-              <a href="{% url 'splash' %}" class="nav-link">
-                <i class="fas fa-sign-out-alt"></i> Home
-              </a>
-          <li class="nav-item mr-3">
-            <a href="{% url 'dashboard' %}" class="nav-link">
-              <i class="fas fa-sign-out-alt"></i> Foundations
-            </a>
-            <li class="nav-item mr-3">
-              <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
-                <i class="fas fa-sign-out-alt"></i> Logout
-              </a>
-              <form action="{% url 'logout' %}" method="POST" id="logout">
-                {% csrf_token %}
-                <input type="hidden">
-              </form>
-          {% else %}
-          <li 
-          {% if '/' == request.path %}
-            class="nav-item active mr-3"
-          {% else %}
-            class="nav-item mr-3" 
-          {% endif %} 
-          >
-            <a class="nav-link" href="{% url 'index' %}">Home</a>
-          </li>
-            <li 
-            {% if 'register' in request.path %}
-              class="nav-item active mr-3"
-            {% else %}
-              class="nav-item mr-3" 
-            {% endif %} 
-            >
-              <a class="nav-link" href="{% url 'register' %}">
-                <i class="fas fa-user-plus"></i> Register</a>
-            </li>
-            <li 
-            {% if 'login' in request.path %}
-              class="nav-item active mr-3"
-            {% else %}
-              class="nav-item mr-3" 
-            {% endif %} 
-            >
-              <a class="nav-link" href="{% url 'login' %}">
-                <i class="fas fa-sign-in-alt"></i>Login</a>
-            </li>
-          {% endif %}
-          </ul>
-        </div>
-      </div>
-    </nav>
-    
-    {% block content %} 
-    
-    {% endblock %}
- 
 
-    <script>
-        $('textarea').each(function () {
-          this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-        }).on('input', function () {
-          this.style.height = 'auto';
-          this.style.height = (this.scrollHeight) + 'px';
-        });
-      </script>
+  <title></title>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+
+  <nav class="indigo lighten-3">
+    <div class="nav-wrapper">
+      <a href="{% url 'index' %}" class="brand-logo"><img src="{% static 'images/ra2_180909-09.png' %}" alt=""
+          style="width:auto;height:25px;"></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{% url 'splash' %}" class="nav-link">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'dashboard' %}" class="nav-link">
+            Foundations
+          </a>
+        </li>
+        <li>
+          <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+            Logout
+          </a>
+        </li>
+        <form action="{% url 'logout' %}" method="POST" id="logout">
+          {% csrf_token %}
+          <input type="hidden">
+        </form>
+        {% else %}
+        <li {% if '/' == request.path %} {% else %} {% endif %}>
+          <a class="nav-link" href="{% url 'index' %}">Home</a>
+        </li>
+        <li {% if 'register' in request.path %}{% else %} {% endif %}>
+          <a class="nav-link" href="{% url 'register' %}">
+            Register</a>
+        </li>
+        <li {% if 'login' in request.path %} {% else %} {% endif %}>
+          <a class="nav-link" href="{% url 'login' %}">
+            Login</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    {% if user.is_authenticated %}
+    <li>
+      <a href="{% url 'splash' %}" class="nav-link">
+        Home
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'dashboard' %}" class="nav-link">
+        Foundations
+      </a>
+    </li>
+    <li>
+      <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+        Logout
+      </a>
+    </li>
+    <form action="{% url 'logout' %}" method="POST" id="logout">
+      {% csrf_token %}
+      <input type="hidden">
+    </form>
+    {% else %}
+    <li {% if '/' == request.path %} {% else %} {% endif %}>
+      <a class="nav-link" href="{% url 'index' %}">Home</a>
+    </li>
+    <li {% if 'register' in request.path %}{% else %} {% endif %}>
+      <a class="nav-link" href="{% url 'register' %}">
+        Register</a>
+    </li>
+    <li {% if 'login' in request.path %} {% else %} {% endif %}>
+      <a class="nav-link" href="{% url 'login' %}">
+        Login</a>
+    </li>
+    {% endif %}
+  </ul>
+
+
+
+  {% block content %}
+
+  {% endblock %}
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'materialize.js' %}"></script>
+  <script>
+
+
+    $('textarea').each(function () {
+      this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+    }).on('input', function () {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+    });
+
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+    });
+
+    $(document).ready(function () {
+      $('.modal').modal();
+    });
+
+  </script>
+
+  {% block javascript %}
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js"
+    integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      // Initialize materialize data picker
+      $('.datepicker').datepicker({ 'format': 'yyyy-mm-dd' });
+      $('select').formSelect();
+
+    });
+  </script>
+  {% endblock javascript %}
+
 </body>
+
 </html>

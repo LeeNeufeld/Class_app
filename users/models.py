@@ -1,4 +1,5 @@
 from django.db import models
+from django_countries.fields import CountryField
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator, MaxValueValidator, MinValueValidator
 import datetime
@@ -15,7 +16,7 @@ def current_year():
 def max_value_current_year(value):
     return MaxValueValidator(current_year())(value) 
 
-nation_choices=IMPORTXML("http://www.listofcountriesoftheworld.com", "//div[@id='ctry']")
+
 
 gender_choices = (
     ("MALE", "Male"),
@@ -38,17 +39,28 @@ income_choices = (
     ("$150,000 - $249,999", "$150,000 - $249,999"),
     ("$250,000 or more", "$250,000 or more")
 )
-
+school_choices = (
+    ("Some high school", "Some high school"),
+    ("High school diploma or equivalent", "High school diploma or equivalent"),
+    ("Trades certification", "Trades certification"),
+    ("College diploma", "College diploma"),
+    ("Bachelor’s degree", "Bachelor’s degree"),
+    ("Graduate degree", "Graduate degree"),
+    ("Professional degree", "Professional degree")
+)
 
 class CustomUser(AbstractUser):
     pass
     age = models.IntegerField(('age'), validators=[MinValueValidator(1900), max_value_current_year], null=True)
     gender = models.CharField(max_length=10, choices= gender_choices)
-    address = models.TextField()
-    city = models.TextField()
+    address = models.TextField(null=True)
+    city = models.TextField(null=True)
     country = models.CharField(max_length=50, choices=country_choices)
     postal_code = models.CharField(max_length=10)
-    income = models.TextField(choices=income_choices)
+    education_attainment = models.TextField(choices=school_choices, null=True)
+    income = models.TextField(choices=income_choices, null=True)
+    ethnicity = models.TextField(null=True)
+    nationality = CountryField(blank_label='(select country)', null=True)
 
      
     def __str__(self):
