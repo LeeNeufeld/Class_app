@@ -5,17 +5,22 @@ from django.core.validators import RegexValidator, MaxValueValidator, MinValueVa
 import datetime
 
 
-validate_caPostalCode = RegexValidator(regex=r'^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]) *(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$', message="Please enter a valid Canadian Postal Code")
-validate_usZipCode = RegexValidator(regex=r"^\d{5}([\-]?\d{4})?$", message="Please enter a valid US Zip Code")
-validate_ukPostalCode = RegexValidator(regex=r"^(GIR|[A-Z]\d[A-Z\d]??|[A-Z]{2}\d[A-Z\d]??)[ ]??(\d[A-Z]{2})$", message="Please enter a valid UK Postal Code")
-validate_auPostalCode = RegexValidator(regex=r"^(0[289][0-9]{2})|([1345689][0-9]{3})|(2[0-8][0-9]{2})|(290[0-9])|(291[0-4])|(7[0-4][0-9]{2})|(7[8-9][0-9]{2})$", message="Please enter a valid Australia Postal Code")
+validate_caPostalCode = RegexValidator(
+    regex=r'^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]) *(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$', message="Please enter a valid Canadian Postal Code")
+validate_usZipCode = RegexValidator(
+    regex=r"^\d{5}([\-]?\d{4})?$", message="Please enter a valid US Zip Code")
+validate_ukPostalCode = RegexValidator(
+    regex=r"^(GIR|[A-Z]\d[A-Z\d]??|[A-Z]{2}\d[A-Z\d]??)[ ]??(\d[A-Z]{2})$", message="Please enter a valid UK Postal Code")
+validate_auPostalCode = RegexValidator(
+    regex=r"^(0[289][0-9]{2})|([1345689][0-9]{3})|(2[0-8][0-9]{2})|(290[0-9])|(291[0-4])|(7[0-4][0-9]{2})|(7[8-9][0-9]{2})$", message="Please enter a valid Australia Postal Code")
+
 
 def current_year():
     return datetime.date.today().year
 
-def max_value_current_year(value):
-    return MaxValueValidator(current_year())(value) 
 
+def max_value_current_year(value):
+    return MaxValueValidator(current_year())(value)
 
 
 gender_choices = (
@@ -25,9 +30,9 @@ gender_choices = (
 )
 
 country_choices = (
-    ("CANADA", "Canada"), 
-    ("USA", "USA"), 
-    ("UNITED KINGDOM", "United Kingdom"), 
+    ("CANADA", "Canada"),
+    ("USA", "USA"),
+    ("UNITED KINGDOM", "United Kingdom"),
     ("AUSTRALIA", "Australia")
 )
 income_choices = (
@@ -49,12 +54,12 @@ school_choices = (
     ("Professional degree", "Professional degree")
 )
 
+
 class CustomUser(AbstractUser):
     pass
-    age = models.IntegerField(('age'), validators=[MinValueValidator(1900), max_value_current_year], null=True)
-    gender = models.CharField(max_length=10, choices= gender_choices)
-    address = models.TextField(null=True)
-    city = models.TextField(null=True)
+    age = models.IntegerField(('age'), validators=[
+                              MinValueValidator(1900), max_value_current_year], null=True)
+    gender = models.CharField(max_length=10, choices=gender_choices)
     country = models.CharField(max_length=50, choices=country_choices)
     postal_code = models.CharField(max_length=10)
     education_attainment = models.TextField(choices=school_choices, null=True)
@@ -62,8 +67,5 @@ class CustomUser(AbstractUser):
     ethnicity = models.TextField(null=True)
     nationality = CountryField(blank_label='(select country)', null=True)
 
-     
     def __str__(self):
         return self.email
-
-    

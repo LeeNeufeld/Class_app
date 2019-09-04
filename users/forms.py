@@ -131,17 +131,7 @@ class CustomUserChangeForm(UserChangeForm):
             'class': 'input-field col s12'
         }
     ))
-    address = forms.CharField(widget=forms.TextInput(
-        attrs={
-            'class': 'input-field col s12'
-        }
-    ))
     ethnicity = forms.CharField(widget=forms.TextInput(
-        attrs={
-            'class': 'input-field col s12'
-        }
-    ))
-    city = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'input-field col s12'
         }
@@ -155,8 +145,6 @@ class CustomUserChangeForm(UserChangeForm):
                   'last_name',
                   'age',
                   'gender',
-                  'address',
-                  'city',
                   'country',
                   'education_attainment',
                   'income',

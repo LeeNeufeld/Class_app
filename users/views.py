@@ -294,8 +294,6 @@ def register(request, *args, **kwargs):
         age = request.POST['age']
         country = request.POST['country']
         postal_code =  request.POST['postal_code'] 
-        address =  request.POST['address'] 
-        city =  request.POST['city']
         education_attainment =  request.POST['education_attainment'] 
         income =  request.POST['income'] 
         ethnicity =  request.POST['ethnicity'] 
@@ -312,10 +310,10 @@ def register(request, *args, **kwargs):
                 messages.error(request, 'Email already used')
                 return redirect('register')
             else:
-                user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=email, password=password, age=age, country=country, postal_code=postal_code, gender=gender, nationality=nationality, address=address, education_attainment=education_attainment, income=income, ethnicity=ethnicity, city=city)
+                user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=email, password=password, age=age, country=country, postal_code=postal_code, gender=gender, nationality=nationality, education_attainment=education_attainment, income=income, ethnicity=ethnicity)
                 user.save(*args, **kwargs)
                 messages.success(request, 'Your profile has been updated')
-                return redirect('dashtutorial')
+                return redirect('tutorial')
      else:
         return render(request, 'pages/register.html')
 

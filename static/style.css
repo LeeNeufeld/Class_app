@@ -1,33 +1,33 @@
 body, html {
-  font-family: 'Roboto', sans-serif;
-  background-color: white;
- }
- 
+   font-family: 'Roboto', sans-serif;
+   background-color: white;
+  }
+  
 .bg {
- position: fixed; 
- background-size: cover;
- top: -50%; 
- left: -50%; 
- width: 200%; 
- height: 200%;
-   
+  position: fixed; 
+  background-size: cover;
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+    
 }
 
 .bg img {
- position: fixed; 
- top: 0; 
- left: 0; 
- right: 0; 
- bottom: 0; 
- margin: auto; 
- min-width: 50%;
- min-height: 50%;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
 }
 
 .foundation.btn-block {
- background-color: #8C96C6;
- font-family: 'Roboto', sans-serif;
- color:white;
+  background-color: #8C96C6;
+  font-family: 'Roboto', sans-serif;
+  color:white;
 }
 
 
@@ -36,152 +36,152 @@ body, html {
 
 
 .index.btn-block{
- background-color: #8C96C6;
- color: white;
- font-family: 'Roboto', sans-serif;
+  background-color: #8C96C6;
+  color: white;
+  font-family: 'Roboto', sans-serif;
 
 }
 
 a{
- font-family: 'Roboto', sans-serif;
- color: white;
+  font-family: 'Roboto', sans-serif;
+  color: white;
 }
 h1, h2, h3, h4, h5, h6{
- font-family: 'Roboto', sans-serif;
- margin-bottom: 0px !important; 
-
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 0px !important; 
+ 
 }
 
 #classifier1, #classifier2, #classifier3, #classifier4, #classifier5,  #classifier6, #classifier7{
- padding-top: 25px;
- margin-top: 0;
- margin-bottom: 0;
- margin-left: auto;
- margin-right: auto;
+  padding-top: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 textarea{
- border: none;
- overflow: auto;
- outline: none;
- box-shadow: none;
- resize: none; 
- font-family: 'Roboto', sans-serif;
- color: black;
+  border: none;
+  overflow: auto;
+  outline: none;
+  box-shadow: none;
+  resize: none; 
+  font-family: 'Roboto', sans-serif;
+  color: black;
 }
 
 textarea[readonly] {
- border: none;
- overflow: auto;
- outline: none;
- box-shadow: none;
- resize: none; 
- font-family: 'Roboto', sans-serif;
- color: black;
+  border: none;
+  overflow: auto;
+  outline: none;
+  box-shadow: none;
+  resize: none; 
+  font-family: 'Roboto', sans-serif;
+  color: black;
 }
 
 .no-gutters {
- margin-right: 0;
- margin-left: 0;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .response{
- display:flex;
- justify-content:space-around;
- position: absolute;
- bottom: 0px;
- right: 0;
- left: 0;
- padding-right: 5.5px;
- padding-left: 5.5px;
+  display:flex;
+  justify-content:space-around;
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+  left: 0;
+  padding-right: 5.5px;
+  padding-left: 5.5px;
 }
 .respad{
- padding-left: 5px;
- padding-right: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .response a{
- width: 200px;
- height: 150px;
- margin: 5px;
- font-size: 3rem;
+  width: 200px;
+  height: 150px;
+  margin: 5px;
+  font-size: 3rem;
 }
 .response button{
- width: 200px;
- height: 150px;
- margin: 5px;
- font-size: 3rem;
+  width: 200px;
+  height: 150px;
+  margin: 5px;
+  font-size: 3rem;
 }
 
 .response a i{
- margin: 30px;
- margin-bottom: 0px;
- font-size: 5rem;
+  margin: 30px;
+  margin-bottom: 0px;
+  font-size: 5rem;
 }
 .response button i{
- margin: 30px;
- margin-bottom: 0px;
- font-size: 5rem;
+  margin: 30px;
+  margin-bottom: 0px;
+  font-size: 5rem;
 }
 
 .maybe  {
- position: absolute;
- bottom: 145px;
- right: 0;
- left: 0;
+  position: absolute;
+  bottom: 145px;
+  right: 0;
+  left: 0;
 
 }
 
 #h1welcome{
- margin-top: 0;
- margin-bottom: 0;
- margin-left: auto;
- margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 
 
 .tut button{
- position: relative;
- margin: 0px;
- right: 0;
- left: 0;
- background-color: #8C96C6;
- color: white;
- font-family: 'Roboto', sans-serif;
+  position: relative;
+  margin: 0px;
+  right: 0;
+  left: 0;
+  background-color: #8C96C6;
+  color: white;
+  font-family: 'Roboto', sans-serif;
 }
 
 .next button{
- position: relative;
- margin: 0px;
- right: 0;
- left: 0;
- background-color: #6c757d;
- color: white;
- font-family: 'Roboto', sans-serif;
+  position: relative;
+  margin: 0px;
+  right: 0;
+  left: 0;
+  background-color: #6c757d;
+  color: white;
+  font-family: 'Roboto', sans-serif;
 }
 
 #title{
- margin-top: 25px;
+  margin-top: 25px;
 }
 
 .Q{
- font-size: 3rem;
+  font-size: 18px;
 }
 
 nav > .brand-logo {
- position: absolute;
- color: #fff;
- display: inline-block;
- font-size: 4rem;
- padding: 0;
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 4rem;
+  padding: 0;
 }
 
 .indbut{
- position: absolute;
- bottom: 0;
- right: 0;
- left: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
