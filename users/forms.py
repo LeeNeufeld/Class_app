@@ -136,6 +136,7 @@ class CustomUserChangeForm(UserChangeForm):
             'class': 'input-field col s12'
         }
     ))
+    password = forms.CharField(widget=forms.HiddenInput())
 
     class Meta:
         model = CustomUser

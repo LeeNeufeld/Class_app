@@ -16,7 +16,11 @@
             <form action="{% url 'editprofile' %}" method="POST">
               {% csrf_token %}
               {{ form|materializecss }}
+
               <button type="submit" class=" btn indigo lighten-3 waves-effect waves-light">Submit</button>
+              <div class="row"></div>
+              <a href="{% url 'change_password' %}" class=" btn indigo lighten-3 waves-effect waves-light">Change
+                Password</a>
             </form>
           </div>
         </div>

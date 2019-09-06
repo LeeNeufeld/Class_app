@@ -1,14 +1,18 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('Classifier', views.classifier, name='classifier'),
-    path('Classifier-Fairness', views.classifierfairness, name='classifierfairness'),
+    path('Classifier-Fairness', views.classifierfairness,
+         name='classifierfairness'),
     path('Classifier-Loyalty', views.classifierloyalty, name='classifierloyalty'),
-    path('Classifier-Authority', views.classifierauthority, name='classifierauthority'),
-    path('Classifier-Sanctity', views.classifiersanctity, name='classifiersanctity'),
+    path('Classifier-Authority', views.classifierauthority,
+         name='classifierauthority'),
+    path('Classifier-Sanctity', views.classifiersanctity,
+         name='classifiersanctity'),
     path('Classifier-Liberty', views.classifierliberty, name='classifierliberty'),
     path('Dashboard', views.dashboard, name='dashboard'),
     path('Login', views.login, name='login'),
@@ -21,6 +25,18 @@ urlpatterns = [
     path('Tutorial2', views.tutorial2, name='tutorial2'),
     path('Test', views.test, name='test'),
     path('logout', views.logout, name='logout'),
- 
-  
+    path('change-password', views.change_password, name='change_password'),
+    path('password-reset', auth_views.PasswordResetView.as_view(
+        template_name='pages/password_reset.html'), name='password_reset'),
+    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(
+        template_name='pages/password_reset_done.html'), name='password_reset_done'),
+    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
+        template_name='pages/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('password-reset-complete', auth_views.PasswordResetCompleteView.as_view(
+        template_name='pages/password_reset_complete.html'), name='password_reset_complete'),
+
+
+
+
+
 ]

@@ -21,49 +21,50 @@
 
   <!-- Navbar -->
 
-
-  <nav class="indigo lighten-3">
-    <div class="nav-wrapper">
-      <a href="{% url 'index' %}" class="brand-logo"><img src="{% static 'images/ra2_180909-09.png' %}" alt=""
-          style="width:auto;height:25px;"></a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        {% if user.is_authenticated %}
-        <li>
-          <a href="{% url 'splash' %}" class="nav-link">
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="{% url 'dashboard' %}" class="nav-link">
-            Foundations
-          </a>
-        </li>
-        <li>
-          <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
-            Logout
-          </a>
-        </li>
-        <form action="{% url 'logout' %}" method="POST" id="logout">
-          {% csrf_token %}
-          <input type="hidden">
-        </form>
-        {% else %}
-        <li {% if '/' == request.path %} {% else %} {% endif %}>
-          <a class="nav-link" href="{% url 'index' %}">Home</a>
-        </li>
-        <li {% if 'register' in request.path %}{% else %} {% endif %}>
-          <a class="nav-link" href="{% url 'register' %}">
-            Register</a>
-        </li>
-        <li {% if 'login' in request.path %} {% else %} {% endif %}>
-          <a class="nav-link" href="{% url 'login' %}">
-            Login</a>
-        </li>
-        {% endif %}
-      </ul>
-    </div>
-  </nav>
+  <div class="navbar-fixed">
+    <nav class="indigo lighten-3">
+      <div class="nav-wrapper">
+        <a href="{% url 'index' %}" class="brand-logo"><img src="{% static 'images/ra2_180909-09.png' %}" alt=""
+            style="width:auto;height:25px;"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          {% if user.is_authenticated %}
+          <li>
+            <a href="{% url 'splash' %}" class="nav-link">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'dashboard' %}" class="nav-link">
+              Foundations
+            </a>
+          </li>
+          <li>
+            <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+              Logout
+            </a>
+          </li>
+          <form action="{% url 'logout' %}" method="POST" id="logout">
+            {% csrf_token %}
+            <input type="hidden">
+          </form>
+          {% else %}
+          <li {% if '/' == request.path %} {% else %} {% endif %}>
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          </li>
+          <li {% if 'register' in request.path %}{% else %} {% endif %}>
+            <a class="nav-link" href="{% url 'register' %}">
+              Register</a>
+          </li>
+          <li {% if 'login' in request.path %} {% else %} {% endif %}>
+            <a class="nav-link" href="{% url 'login' %}">
+              Login</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </div>
 
   <ul class="sidenav" id="mobile-demo">
     {% if user.is_authenticated %}

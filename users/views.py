@@ -3,7 +3,10 @@ from django.http import HttpResponse
 from django.contrib import messages, auth
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm, PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from django.conf import settings
+from django.core.mail import send_mail
 from users.forms import CustomUserChangeForm, CustomUserCreationForm
 from response.models import Responses
 from questions.models import Questions
@@ -312,6 +315,12 @@ def register(request, *args, **kwargs):
             else:
                 user = User.objects.create_user(first_name=first_name, last_name=last_name, email=email, username=email, password=password, age=age, country=country, postal_code=postal_code, gender=gender, nationality=nationality, education_attainment=education_attainment, income=income, ethnicity=ethnicity)
                 user.save(*args, **kwargs)
+                subject = 'Thank you for registering!'
+                message = 'Welcome to the Moral Class App! You have been registered and are ready to start classifying sentences. Thank you from RA2!'
+                from_email = settings.EMAIL_HOST_USER
+                to_email = [user.email]
+                send_mail(subject, message, from_email, to_email, fail_silently=True)
+
                 messages.success(request, 'Your profile has been updated')
                 return redirect('tutorial')
      else:
@@ -336,10 +345,20 @@ def profile (request):
         args = {'user': request.user}
         return render(request, 'pages/profile.html', args)
 
-
-
-
-
-
 def splash (request):
         return render(request, 'pages/splash.html')
+
+def change_password (request):
+        if request.method == 'POST':
+                form = PasswordChangeForm(data=request.POST, user=request.user)
+                if form.is_valid():
+                        form.save()
+                        update_session_auth_hash(request, form.user)
+                        return redirect ('profile')
+                else:
+                        return redirect('change_password')
+               
+        else:
+                form = PasswordChangeForm(user=request.user)
+        args = {'form': form}
+        return render(request, 'pages/change_password.html', args)

@@ -24,9 +24,17 @@
                   <label for="password2">Password</label>
                 </div>
               </div>
-              <button type="submit" class=" btn indigo lighten-3 waves-effect waves-light" href="{% url 'splash' %}">
-                Login
-              </button>
+              <div class="row">
+                <div class="col s6">
+                  <button type="submit" class=" btn indigo lighten-3 waves-effect waves-light"
+                    href="{% url 'splash' %}">
+                    Login
+                  </button>
+                </div>
+                <div class="col s6">
+                  <a class="blue-text " href="{% url 'password_reset' %}"> Forgot Password? </a>
+                </div>
+              </div>
             </form>
           </div>
 </section>
