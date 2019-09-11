@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserChangeForm, UserCreationForm, Password
 from django.contrib.auth import update_session_auth_hash
 from django.conf import settings
 from django.core.mail import send_mail
+from django.db.models import F
 from users.forms import CustomUserChangeForm, CustomUserCreationForm
 from response.models import Responses
 from questions.models import Questions
@@ -36,7 +37,9 @@ def index(request):
 def classifier(request):
     responses = request.POST.get('response')
     question = Questions.objects.get(id='1')
-    random_objects =ClassSentence.objects.order_by('?')[0:1]
+    random_objects =ClassSentence.objects.raw("SELECT * FROM class_sentence ORDER BY -LOG(1.0 - random()) / weight LIMIT 1")
+    
+    
     user_id = request.user.id
     age = request.user.age
     gender = request.user.gender
@@ -50,7 +53,7 @@ def classifier(request):
         'age': age,
         'gender': gender,
         'postal_code': postal_code,
-        'country': country
+        'country': country,
 
     }
     if request.method =='POST':
@@ -76,7 +79,7 @@ def classifier(request):
 def classifierfairness (request):
         responses = request.POST.get('response')
         questionf = Questions.objects.get(id='2')
-        random_objects =ClassSentence.objects.order_by('?')[0:1]
+        random_objects =ClassSentence.objects.raw("SELECT * FROM class_sentence ORDER BY -LOG(1.0 - random()) / weight LIMIT 1")
         user_id = request.user.id
         age = request.user.age
         gender = request.user.gender
@@ -114,7 +117,7 @@ def classifierfairness (request):
 def classifierloyalty (request):
         responses = request.POST.get('response')
         questionl = Questions.objects.get(id='3')
-        random_objects =ClassSentence.objects.order_by('?')[0:1]
+        random_objects =ClassSentence.objects.raw("SELECT * FROM class_sentence ORDER BY -LOG(1.0 - random()) / weight LIMIT 1")
         user_id = request.user.id
         age = request.user.age
         gender = request.user.gender
@@ -152,7 +155,7 @@ def classifierloyalty (request):
 def classifierauthority (request):
         responses = request.POST.get('response')
         questiona = Questions.objects.get(id='4')
-        random_objects =ClassSentence.objects.order_by('?')[0:1]
+        random_objects =ClassSentence.objects.raw("SELECT * FROM class_sentence ORDER BY -LOG(1.0 - random()) / weight LIMIT 1")
         user_id = request.user.id
         age = request.user.age
         gender = request.user.gender
@@ -190,7 +193,7 @@ def classifierauthority (request):
 def classifiersanctity (request):
         responses = request.POST.get('response')
         questionS = Questions.objects.get(id='5')
-        random_objects =ClassSentence.objects.order_by('?')[0:1]
+        random_objects =ClassSentence.objects.raw("SELECT * FROM class_sentence ORDER BY -LOG(1.0 - random()) / weight LIMIT 1")
         user_id = request.user.id
         age = request.user.age
         gender = request.user.gender
@@ -228,7 +231,7 @@ def classifiersanctity (request):
 def classifierliberty (request):
         responses = request.POST.get('response')
         questionL = Questions.objects.get(id='6')
-        random_objects =ClassSentence.objects.order_by('?')[0:1]
+        random_objects =ClassSentence.objects.raw("SELECT * FROM class_sentence ORDER BY -LOG(1.0 - random()) / weight LIMIT 1")
         user_id = request.user.id
         age = request.user.age
         gender = request.user.gender
