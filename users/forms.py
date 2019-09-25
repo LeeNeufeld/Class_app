@@ -96,6 +96,11 @@ class CustomUserChangeForm(UserChangeForm):
             'class': 'input-field col s12'
         }
     ))
+    screen_name = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'input-field col s12'
+        }
+    ))
     email = forms.EmailField(widget=forms.EmailInput(
         attrs={
             'class': 'input-field col s12'
@@ -142,6 +147,7 @@ class CustomUserChangeForm(UserChangeForm):
         model = CustomUser
         fields = ('username',
                   'email',
+                  'screen_name',
                   'first_name',
                   'last_name',
                   'age',

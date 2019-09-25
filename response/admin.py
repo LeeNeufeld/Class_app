@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Responses
+from .models import CareResponses
 
-admin.site.register(Responses)
+admin.site.register(CareResponses)

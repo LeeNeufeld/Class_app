@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load materializecss %}
+<div class="row"></div>
+<div class="container">
+    <h5>Current Leader</h5>
+    <div class="row "></div>
+    {% for totallead in totalleads %}
+    <div class="row">
+        <div class="col s12">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{ totallead }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+    <h5>Care/Harm</h5>
+    <div class="row "></div>
+    {% for carelead in careleads %}
+    <div class="row">
+        <div class="col s12">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{ carelead }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row"></div>
+    <h5>Liberty/Oppression</h5>
+    <div class="row"></div>
+    {% for liblead in libleads %}
+    <div class="row">
+        <div class="col s12">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{ liblead }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row"></div>
+    <h5>Fairness/Cheating</h5>
+    <div class="row"></div>
+    {% for fairlead in fairleads %}
+    <div class="row">
+        <div class="col s12">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{ fairlead }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row"></div>
+    <h5>Loyalty/Betrayal</h5>
+    <div class="row"></div>
+    {% for loylead in loyleads %}
+    <div class="row">
+        <div class="col s12">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{ loylead }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row"></div>
+    <h5>Authority/Subversion</h5>
+    <div class="row"></div>
+    {% for authlead in authleads %}
+    <div class="row">
+        <div class="col s12">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{ authlead }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row"></div>
+    <h5>Sanctity/Degradation</h5>
+    <div class="row"></div>
+    {% for sanlead in sanleads %}
+    <div class="row">
+        <div class="col s12">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{ sanlead }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

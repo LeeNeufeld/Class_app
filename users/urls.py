@@ -24,6 +24,7 @@ urlpatterns = [
     path('DashTutorial', views.dashtutorial, name='dashtutorial'),
     path('Tutorial2', views.tutorial2, name='tutorial2'),
     path('Test', views.test, name='test'),
+    path('Leaderboard', views.leaderboard, name='leaderboard'),
     path('logout', views.logout, name='logout'),
     path('change-password', views.change_password, name='change_password'),
     path('password-reset', auth_views.PasswordResetView.as_view(

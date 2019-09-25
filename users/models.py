@@ -57,6 +57,7 @@ school_choices = (
 
 class CustomUser(AbstractUser):
     pass
+    screen_name = models.CharField(max_length=50, null=True)
     age = models.IntegerField(('age'), validators=[
                               MinValueValidator(1900), max_value_current_year], null=True)
     gender = models.CharField(max_length=10, choices=gender_choices)
@@ -66,6 +67,7 @@ class CustomUser(AbstractUser):
     income = models.TextField(choices=income_choices, null=True)
     ethnicity = models.TextField(null=True)
     nationality = CountryField(blank_label='(select country)', null=True)
+    image = models.ImageField(upload_to='profile_image', blank=True)
 
     def __str__(self):
         return self.email

@@ -1,28 +1,22 @@
 body, html {
    font-family: 'Roboto', sans-serif;
-   background-color: white;
+  
   }
   
 .bg {
   position: fixed; 
-  background-size: cover;
-  top: -50%; 
-  left: -50%; 
-  width: 200%; 
-  height: 200%;
+  top: 0; 
+  left: 0; 
+  background-position: center;
+
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+  z-index:-1;
     
 }
 
-.bg img {
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  margin: auto; 
-  min-width: 50%;
-  min-height: 50%;
-}
+
 
 .foundation.btn-block {
   background-color: #8C96C6;
@@ -71,6 +65,15 @@ textarea{
   color: black;
 }
 
+#question{
+  font-weight: bold;
+}
+
+#sentence{
+  font-size:1.5rem;
+  
+}
+
 textarea[readonly] {
   border: none;
   overflow: auto;
@@ -79,6 +82,7 @@ textarea[readonly] {
   resize: none; 
   font-family: 'Roboto', sans-serif;
   color: black;
+  padding-left: 15px;
 }
 
 .no-gutters {
@@ -168,7 +172,7 @@ textarea[readonly] {
 }
 
 .Q{
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 nav > .brand-logo {

@@ -1,47 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="row">
     <div class="row"></div>
-    <div class="row">
-        <div class="col s12">
-            <div class="card">
-                <div class="card-content">
-                    <div class="row">
-                        <form class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <textarea class="materialize-textarea"
-                                        readonly>This version has included a splash page for app navigation. Leaderboard functionality to follow in later update. </textarea>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="card-panel" style="margin: 10px">
+        <h6 class="black-text center">This version has included
+            a splash page for app navigation. Leaderboard functionality to follow in later update. </h6>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col s12 center">
-                <a class="btn-large col s12 indigo lighten-3 waves-effect waves-light" href="{% url 'dashboard' %}">
-                    Classify
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 center">
-                <button class=" btn-large col s12 grey lighten-1" style="margin-top: 0;background-color: #6c757d">
-                    Leader Board
-                </button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 center">
-                <a class="btn-large col s12 blue lighten-1 waves-effect waves-light" href="{% url 'profile' %}">
-                    Settings
-                </a>
-            </div>
-        </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col s12 center">
+        <a class="btn-large col s12 indigo lighten-3 waves-effect waves-light" href="{% url 'dashboard' %}">
+            Classify
+        </a>
     </div>
-    {% endblock %}
+</div>
+<div class="row">
+    <div class="col s12 center">
+        <a class=" btn-large col s12 grey lighten-1" href="{% url 'leaderboard' %}" style=" margin-top:
+            0;background-color: #6c757d">
+            Leader Board
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 center">
+        <a class="btn-large col s12 blue lighten-1 waves-effect waves-light" href="{% url 'profile' %}">
+            Settings
+        </a>
+    </div>
+</div>
+</div>
+
+{% endblock %}

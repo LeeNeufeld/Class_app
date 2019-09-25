@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
+
   <link rel="stylesheet"
     href="C:\Users\LeeNe\Documents\Work\classification_app\classapp\static\fontawesome-free-5.9.0-web\css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,8 +25,8 @@
   <div class="navbar-fixed">
     <nav class="indigo lighten-3">
       <div class="nav-wrapper">
-        <a href="{% url 'index' %}" class="brand-logo"><img src="{% static 'images/ra2_180909-09.png' %}" alt=""
-            style="width:auto;height:25px;"></a>
+        <a href="{% url 'index' %}" style="padding-top:5px" class="brand-logo"><img
+            src="{% static 'images/ra2_180909-09.png' %}" alt="" style="width:auto;height:25px; "></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           {% if user.is_authenticated %}
@@ -65,7 +66,14 @@
       </div>
     </nav>
   </div>
-
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="{% url 'classifier' %}">Care/Harm</a></li>
+    <li><a href="{% url 'classifierliberty' %}">Liberty/Oppression</a></li>
+    <li><a href="{% url 'classifierfairness' %}">Fairness/Cheating</a></li>
+    <li><a href="{% url 'classifierloyalty' %}">Loyalty/Betrayal</a></li>
+    <li><a href="{% url 'classifierauthority' %}">Authority/Subversion</a></li>
+    <li><a href="{% url 'classifiersanctity' %}">Sanctity/Degradation</a></li>
+  </ul>
   <ul class="sidenav" id="mobile-demo">
     {% if user.is_authenticated %}
     <li>
@@ -74,8 +82,13 @@
       </a>
     </li>
     <li>
-      <a href="{% url 'dashboard' %}" class="nav-link">
-        Foundations
+      <a class="dropdown-trigger" href="#!" data-target="dropdown1">
+        Foundations<i class="material-icons right">arrow_drop_down</i>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'profile' %}" class="nav-link">
+        Settings
       </a>
     </li>
     <li>
@@ -144,6 +157,8 @@
       // Initialize materialize data picker
       $('.datepicker').datepicker({ 'format': 'yyyy-mm-dd' });
       $('select').formSelect();
+      $(".dropdown-trigger").dropdown();
+      $('.carousel').carousel();
 
     });
   </script>

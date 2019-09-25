@@ -7,8 +7,8 @@
     <div class="row"></div>
     <div class="row">
       <div class="col s12">
-        <div class="card">
-          <div class="card-content">
+        <div class="">
+          <div class="">
             <h5>
               Update Profile
             </h5>
@@ -17,10 +17,10 @@
               {% csrf_token %}
               {{ form|materializecss }}
 
-              <button type="submit" class=" btn indigo lighten-3 waves-effect waves-light">Submit</button>
+              <button type="submit" style="margin-left: 8px"
+                class=" btn indigo lighten-3 waves-effect waves-light">Submit</button>
               <div class="row"></div>
-              <a href="{% url 'change_password' %}" class=" btn indigo lighten-3 waves-effect waves-light">Change
-                Password</a>
+
             </form>
           </div>
         </div>
