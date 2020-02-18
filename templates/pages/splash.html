@@ -1,38 +1,45 @@
+<!--First page user sees when they login-->
+<!--Contains a text field for app version info and buttons to navigate to the classifier dashboard, leaderboard or settings-->
 {% extends 'base.html' %}
+<!--extends base.html file to populate navbar and globally used javascript and styling-->
 
 {% block content %}
-<div class="row">
+<!--Displays page content-->
+<div class="row mob" style="margin-bottom: 10px;">
     <div class="row"></div>
     <div class="card-panel" style="margin: 10px">
-        <h6 class="black-text center">This version has included
+        <h6 class="black-text ">This version has included
             a splash page for app navigation. Leaderboard functionality to follow in later update. </h6>
     </div>
 </div>
 
 
-
-<div class="row">
-    <div class="col s12 center">
-        <a class="btn-large col s12 indigo lighten-3 waves-effect waves-light" href="{% url 'dashboard' %}">
-            Classify
-        </a>
+<div class="mob">
+    <div class="row">
+        <div class="col s12 center">
+            <a class="btn-large col s12 indigo lighten-3 waves-effect waves-light" href="{% url 'dashboard' %}">
+                <!--Takes user to classifier dashbaord to select a foundation-->
+                Classify
+            </a>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col s12 center">
-        <a class=" btn-large col s12 grey lighten-1" href="{% url 'leaderboard' %}" style=" margin-top:
+    <div class="row">
+        <div class="col s12 center">
+            <a class=" btn-large col s12 grey lighten-1" href="{% url 'leaderboard' %}" style=" margin-top:
             0;background-color: #6c757d">
-            Leader Board
-        </a>
+                <!--Takes user to the leader board-->
+                Leader Board
+            </a>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col s12 center">
-        <a class="btn-large col s12 blue lighten-1 waves-effect waves-light" href="{% url 'profile' %}">
-            Settings
-        </a>
+    <div class="row">
+        <div class="col s12 center">
+            <a class="btn-large col s12 blue lighten-1 waves-effect waves-light" href="{% url 'profile' %}">
+                <!--Takes user to profile page-->
+                Settings
+            </a>
+        </div>
     </div>
-</div>
 </div>
 
 {% endblock %}

@@ -1,8 +1,12 @@
+<!--This page allows the user to view their current demographic information and provides a link to the edit profile page to make and changes-->
+<!--This page uses the Matialize dependancy for all UX variables and styling-->
 {% extends 'base.html' %}
+<!--extends base.html to populate the navbar-->
 
 {% block content %}
-<section class="py-5">
-    <div class="container">
+<!--displays page content-->
+<section class="py-5 ">
+    <div class="container mob">
         <div class="row"></div>
         <div class="row">
             <div class="col s12">
@@ -11,47 +15,69 @@
                         <h5>
                             Profile </h5>
                         <div class="row"></div>
-                        <a href="{% url 'change_password' %}" class=" blue-text right" style="margin-right: 8px">Change
+                        <a href="{% url 'change_password' %}" class=" blue-text right"
+                            style="margin-right: 8px; margin-bottom:10px">Change
                             Password</a>
+                        <!--Link to the change password page-->
                         <form>
 
                             <div class="input-field col s12">
                                 <input type="text" value="{{ user.email }}" disabled>
                                 <label for="email">Email</label>
+                                <!--displays the current user email from the user instance query in the views file-->
                             </div>
                             <div class="input-field col s12">
                                 <input type="text" value="{{ user.screen_name }}" disabled>
+                                <!--displays the current user screen name from the user instance query in the views file-->
                                 <label for="screen_name">Username</label>
                             </div>
                             <div class="input-field col s12">
                                 <input type="text" value=" {{ user.first_name }}" disabled>
+                                <!--displays the current user first name from the user instance query in the views file-->
                                 <label for="first_name">First Name</label>
                             </div>
                             <div class="input-field col s12">
                                 <input type="text" value=" {{ user.last_name }}" disabled>
+                                <!--displays the current user last name from the user instance query in the views file-->
                                 <label for="last_name">Last Name</label>
                             </div>
                             <div class="input-field col s12">
                                 <input type="text" value=" {{ user.gender }}" disabled>
+                                <!--displays the current user gender from the user instance query in the views file-->
                                 <label for="gender">Gender</label>
                             </div>
                             <div class="input-field col s12">
                                 <input type="text" value=" {{ user.age }}" disabled>
+                                <!--displays the current user age from the user instance query in the views file-->
                                 <label for="age">Year of Birth</label>
                             </div>
                             <div class="input-field col s12">
+                                <input type="text" value=" {{ user.urbanization }}" disabled>
+                                <!--displays the current urbanization email from the user instance query in the views file-->
+                                <label for="urbanization">Urbanization</label>
+                            </div>
+                            <div class="input-field col s12">
                                 <input type="text" value=" {{ user.country }}" disabled>
+                                <!--displays the current user country from the user instance query in the views file-->
                                 <label for="country">Country</label>
                             </div>
                             <div class="input-field col s12">
                                 <input type="text" value=" {{ user.postal_code }}" disabled>
+                                <!--displays the current user postal code from the user instance query in the views file-->
                                 <label for="postal_code">Postal Code</label>
                             </div>
-
-                            <button class="btn indigo lighten-3 waves-effect waves-light left"
-                                style="margin-left: 8px"><a href="{% url 'editprofile' %}">
-                                    Edit
-                                </a></button>
+                            <div class="row ">
+                                <!--link to profile edit page-->
+                                <button class="  col s4 btn indigo lighten-3 waves-effect waves-light "
+                                    style="margin-left: 20px;"><a href="{% url 'editprofile' %}">
+                                        Edit
+                                    </a></button>
+                                <!--Returns the user to the splash page-->
+                                <button class="  col s4 btn indigo lighten-3 waves-effect waves-light "
+                                    style="margin-left: 80px;"><a href="{% url 'splash' %}">
+                                        Cancel
+                                    </a></button>
+                            </div>
                         </form>
                     </div>
                 </div>

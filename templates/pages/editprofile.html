@@ -1,8 +1,12 @@
+<!--This page opens an editable form to allow users to change there personal information-->
 {% extends 'base.html' %}
+<!--extends the base.html file to populate the navbar, globally used javascript and styling-->
 
 {% block content %}
+<!--displays the page content-->
 {% load materializecss %}
-<section id="login" class="py-5">
+<!--loads the materialize dependency to be used on the form-->
+<section id="login" class="py-5 mob">
   <div class="container">
     <div class="row"></div>
     <div class="row">
@@ -14,11 +18,20 @@
             </h5>
             <div class="row"></div>
             <form action="{% url 'editprofile' %}" method="POST">
+              <!--Form to edit the user profile-->
               {% csrf_token %}
+              <!--implements Django encription token-->
               {{ form|materializecss }}
+              <!--Displays the user edit form from the views.py file-->
 
               <button type="submit" style="margin-left: 8px"
-                class=" btn indigo lighten-3 waves-effect waves-light">Submit</button>
+                class=" col s4 btn indigo lighten-3 waves-effect waves-light">Submit</button><!-- Saves edits to DB-->
+
+              <button class=" col s4 btn indigo lighten-3 waves-effect waves-light " style="margin-left: 95px"><a
+                  href="{% url 'splash' %}">
+                  <!--returns user to the splash page-->
+                  Cancel
+                </a></button>
               <div class="row"></div>
 
             </form>

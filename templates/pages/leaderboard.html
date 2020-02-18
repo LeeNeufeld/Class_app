@@ -1,25 +1,31 @@
 {% extends 'base.html' %}
+<!--Include the  base.html page to this page to populate the navbar, globally used javascript and styling-->
 
 {% block content %}
 {% load materializecss %}
+<!--loads the materialize dependency to be used on the form-->
 <div class="row"></div>
-<div class="container">
+<div class="container mob">
     <h5>Current Leader</h5>
     <div class="row "></div>
     {% for totallead in totalleads %}
+    <!--Pulls requested info through the leadboard query in the views.py flie to display leader info-->
     <div class="row">
         <div class="col s12">
             <table class="">
                 <thead>
                     <tr>
-                        <th></th>
-
+                        <th>Username</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td>{{ totallead }}</td>
+                        <td>{{ totallead.screen_name }}</td>
+                        <!--Shows leader screen name based on query results-->
+                        <td>{{ totallead.total }}</td>
+                        <!--Shows leader classification total based on query results-->
                     </tr>
                 </tbody>
             </table>
@@ -29,19 +35,23 @@
     <h5>Care/Harm</h5>
     <div class="row "></div>
     {% for carelead in careleads %}
+    <!--Pulls requested info through the leadboard query in the views.py flie to display leader info-->
     <div class="row">
         <div class="col s12">
             <table class="">
                 <thead>
                     <tr>
-                        <th></th>
-
+                        <th>Username</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td>{{ carelead }}</td>
+                        <td>{{ carelead.screen_name }}</td>
+                        <!--Shows leader screen name based on query results-->
+                        <td>{{ carelead.care_harm }}</td>
+                        <!--Shows leader classification total based on query results-->
                     </tr>
                 </tbody>
             </table>
@@ -52,19 +62,23 @@
     <h5>Liberty/Oppression</h5>
     <div class="row"></div>
     {% for liblead in libleads %}
+    <!--Pulls requested info through the leadboard query in the views.py flie to display leader info-->
     <div class="row">
         <div class="col s12">
             <table class="">
                 <thead>
                     <tr>
-                        <th></th>
-
+                        <th>Username</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td>{{ liblead }}</td>
+                        <td>{{ liblead.screen_name }}</td>
+                        <!--Shows leader screen name based on query results-->
+                        <td>{{ liblead.liberty_oppression }}</td>
+                        <!--Shows leader classification total based on query results-->
                     </tr>
                 </tbody>
             </table>
@@ -75,19 +89,22 @@
     <h5>Fairness/Cheating</h5>
     <div class="row"></div>
     {% for fairlead in fairleads %}
+    <!--Pulls requested info through the leadboard query in the views.py flie to display leader info-->
     <div class="row">
         <div class="col s12">
             <table class="">
                 <thead>
                     <tr>
-                        <th></th>
-
+                        <th>Username</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     <tr>
-                        <td>{{ fairlead }}</td>
+                        <td>{{ fairlead.screen_name }}</td>
+                        <!--Shows leader screen name based on query results-->
+                        <td>{{ fairlead.fairness_cheating }}</td>
+                        <!--Shows leader classification total based on query results-->
                     </tr>
                 </tbody>
             </table>
@@ -98,19 +115,23 @@
     <h5>Loyalty/Betrayal</h5>
     <div class="row"></div>
     {% for loylead in loyleads %}
+    <!--Pulls requested info through the leadboard query in the views.py flie to display leader info-->
     <div class="row">
         <div class="col s12">
             <table class="">
                 <thead>
                     <tr>
-                        <th></th>
-
+                        <th>Username</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td>{{ loylead }}</td>
+                        <td>{{ loylead.screen_name }}</td>
+                        <!--Shows leader screen name based on query results-->
+                        <td>{{ loylead.loyalty_betrayal }}</td>
+                        <!--Shows leader classification total based on query results-->
                     </tr>
                 </tbody>
             </table>
@@ -121,19 +142,23 @@
     <h5>Authority/Subversion</h5>
     <div class="row"></div>
     {% for authlead in authleads %}
+    <!--Pulls requested info through the leadboard query in the views.py flie to display leader info-->
     <div class="row">
         <div class="col s12">
             <table class="">
                 <thead>
                     <tr>
-                        <th></th>
-
+                        <th>Username</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td>{{ authlead }}</td>
+                        <td>{{ authlead.screen_name }}</td>
+                        <!--Shows leader screen name based on query results-->
+                        <td>{{ authlead.authority_subversion }}</td>
+                        <!--Shows leader classification total based on query results-->
                     </tr>
                 </tbody>
             </table>
@@ -144,19 +169,23 @@
     <h5>Sanctity/Degradation</h5>
     <div class="row"></div>
     {% for sanlead in sanleads %}
+    <!--Pulls requested info through the leadboard query in the views.py flie to display leader info-->
     <div class="row">
         <div class="col s12">
             <table class="">
                 <thead>
                     <tr>
-                        <th></th>
-
+                        <th>Username</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td>{{ sanlead }}</td>
+                        <td>{{ sanlead.screen_name }}</td>
+                        <!--Shows leader screen name based on query results-->
+                        <td>{{ sanlead.sanctity_degradation }}</td>
+                        <!--Shows leader classification total based on query results-->
                     </tr>
                 </tbody>
             </table>

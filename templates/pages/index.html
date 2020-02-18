@@ -1,18 +1,23 @@
 {% extends 'base.html' %}
+<!--Include the  base.html page to this page to populate the navbar, globally used javascript and styling-->
 {% load static %}
+<!--Loads the static files to the page-->
 
 {% block content %}
-<img src="{% static 'images/calgary.jpg'%}" class="bg" alt="">
+<!--Displays the main content of the page-->
+
+<!--Main Title Header-->
+<div class="back"></div>
 <div class="row"></div>
 <div class="container">
   <div class="row">
     <div class="col s12 center">
-      <h3 class="white-text">Morals Class App</h3>
+      <h3 class="white-text">Morals Classifier</h3>
     </div>
   </div>
 </div>
-
-<div class="container indbut">
+<!--Login and Register Buttons-->
+<div class="container indbut mob">
   <div class="row">
     <div class="col s12 center">
       <a class=" indigo lighten-3 btn-large col 16 s12 waves-effect waves-light" href="{% url 'login' %}">
@@ -29,7 +34,57 @@
   </div>
 </div>
 
+<!-- Javascript Function for the random pic generation on the index page-->
+<script type="text/javascript">
+  // # of images
+  var imgCount = 30;
+  // image directory
+  var dir = "{% static 'images/' %}";
+  // random the images
+  var randomCount = Math.round(Math.random() * (imgCount - 1)) + 1;
+  // array of images & file name
+  var images = new Array
+  images[1] = "1.jpg",
+    images[2] = "2.jpg",
+    images[3] = "3.jpg",
+    images[4] = "4.jpg";
+  images[5] = "5.jpg";
+  images[6] = "6.jpg";
+  images[7] = "7.jpg";
+  images[8] = "8.jpg";
+  images[9] = "9.jpg";
+  images[10] = "10.jpg";
+  images[11] = "11.jpg";
+  images[12] = "12.jpg";
+  images[13] = "13.jpg";
+  images[14] = "14.jpg";
+  images[15] = "15.jpg";
+  images[16] = "16.jpg";
+  images[17] = "17.jpg";
+  images[18] = "18.jpg";
+  images[19] = "19.jpg";
+  images[20] = "20.jpg";
+  images[21] = "21.jpg";
+  images[22] = "22.jpg";
+  images[23] = "23.jpg";
+  images[24] = "24.jpg";
+  images[25] = "25.jpg";
+  images[26] = "26.jpg";
+  images[27] = "27.jpg";
+  images[28] = "28.jpg";
+  images[29] = "29.jpg";
+  images[30] = "30.jpg";
+  document.body.style.backgroundImage = "url(" + dir + images[randomCount] + ")";
+  document.body.style.backgroundPosition = 'center';
+  document.body.style.backgroundSize = '1800px auto';
+  document.body.style.backgroundRepeat = 'no-repeat';
+
+
+
+</script>
+
 
 
 
 {% endblock %}
+<!--Ends the current display area of the page-->

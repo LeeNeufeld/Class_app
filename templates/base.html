@@ -1,4 +1,6 @@
+<!--This page holds all base styling, static files, javascript and navbar that are to be used globally through out the app-->
 {% load static %}
+<!--Loads the static files from the settings.py file-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,113 +13,143 @@
 
   <link rel="stylesheet"
     href="C:\Users\LeeNe\Documents\Work\classification_app\classapp\static\fontawesome-free-5.9.0-web\css">
+  <!--imports font awesome-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Imports googlefonts-->
   <link rel="stylesheet" href="{% static 'materialize.css' %}">
+  <!--Loads Materialize dependancy-->
   <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+  <!--Loads custom style sheet-->
 
   <title></title>
+
+
 </head>
+<!--Navbar-->
+<div class="navbar-fixed" style="height: 56px;">
+  <nav class="indigo lighten-3" style="height: 56px;">
+    <div class="nav-wrapper">
+
+      
+      <!--Trigger for the mobile nav view-->
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger" style="height: 56px;"><i
+          class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down" style="height: 56px;">
+        {% if user.is_authenticated %}
+        <!--When user logs in and is authenticated then the Navbar display is changed to what is below-->
+        <li>
+          <a href="{% url 'splash' %}" class="nav-link" style="height: 56px;">
+            <!--directs user to splash page-->
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'dashboard' %}" class="nav-link" style="height: 56px;">
+            <!--directs user to foundations dashboard page-->
+            Foundations
+          </a>
+        </li>
+        <li>
+          <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link" style="height: 56px;">
+            <!--inits user log out funtion-->
+            Logout
+          </a>
+        </li>
+        <form action="{% url 'logout' %}" method="POST" id="logout">
+          {% csrf_token %}
+          <!--implements Django authenitcation token-->
+          <input type="hidden">
+        </form>
+        {% else %}
+        <!--if user does not login or is not authenticated then this is what is shown in the Navbar-->
+        <li {% if '/' == request.path %} {% else %} {% endif %}>
+          <a class="nav-link" style="height: 56px;" href="{% url 'index' %}">Home</a>
+          <!--directs user to index page-->
+        </li>
+        <li {% if 'register' in request.path %}{% else %} {% endif %}>
+          <a class="nav-link" style="height: 56px;" href="{% url 'register' %}">
+            <!--directs user to registration page-->
+            Register</a>
+        </li>
+        <li {% if 'login' in request.path %} {% else %} {% endif %}>
+          <a class="nav-link" style="height: 56px;" href="{% url 'login' %}">
+            <!--directs user to login page-->
+            Login</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<ul id="dropdown1" class="dropdown-content">
+  <!--This is a drop down select for the navbar to allow the user to select a foundation from the navbar directly-->
+  <li><a href="{% url 'classifier' %}">Care/Harm</a></li>
+  <li><a href="{% url 'classifierliberty' %}">Liberty/Oppression</a></li>
+  <li><a href="{% url 'classifierfairness' %}">Fairness/Cheating</a></li>
+  <li><a href="{% url 'classifierloyalty' %}">Loyalty/Betrayal</a></li>
+  <li><a href="{% url 'classifierauthority' %}">Authority/Subversion</a></li>
+  <li><a href="{% url 'classifiersanctity' %}">Sanctity/Degradation</a></li>
+</ul>
+<ul class="sidenav" id="mobile-demo">
+  <!--This is the same navbar info as above, but is set for modile view-->
+  {% if user.is_authenticated %}
+  <!--When user logs in and is authenticated then the Navbar display is changed to what is below-->
+  <li>
+    <a href="{% url 'splash' %}" class="nav-link">
+      <!--directs user to splash page-->
+      Home
+    </a>
+  </li>
+  <li>
+    <a class="dropdown-trigger" href="#!" data-target="dropdown1">
+      <!--tiggers foundation drop down menu-->
+      Foundations<i class="material-icons right">arrow_drop_down</i>
+    </a>
+  </li>
+  <li>
+    <a href="{% url 'profile' %}" class="nav-link">
+      <!--directs user to profile page-->
+      Settings
+    </a>
+  </li>
+  <li>
+    <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+      <!--Inits javascript function to log the user out-->
+      Logout
+    </a>
+  </li>
+  <form action="{% url 'logout' %}" method="POST" id="logout">
+    {% csrf_token %}
+    <!--implements Django authenitcation token-->
+    <input type="hidden">
+  </form>
+  {% else %}
+  <!--if user does not login or is not authenticated then this is what is shown in the Navbar-->
+  <li {% if '/' == request.path %} {% else %} {% endif %}>
+    <!--directs user to index page-->
+    <a class="nav-link" href="{% url 'index' %}">Home</a>
+  </li>
+  <li {% if 'register' in request.path %}{% else %} {% endif %}>
+    <!--directs user to registration page-->
+    <a class="nav-link" href="{% url 'register' %}">
+      Register</a>
+  </li>
+  <li {% if 'login' in request.path %} {% else %} {% endif %}>
+    <!--directs user to login page-->
+    <a class="nav-link" href="{% url 'login' %}">
+      Login</a>
+  </li>
+  {% endif %}
+</ul>
+
+
+
 
 <body>
 
-  <!-- Navbar -->
-
-  <div class="navbar-fixed">
-    <nav class="indigo lighten-3">
-      <div class="nav-wrapper">
-        <a href="{% url 'index' %}" style="padding-top:5px" class="brand-logo"><img
-            src="{% static 'images/ra2_180909-09.png' %}" alt="" style="width:auto;height:25px; "></a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          {% if user.is_authenticated %}
-          <li>
-            <a href="{% url 'splash' %}" class="nav-link">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'dashboard' %}" class="nav-link">
-              Foundations
-            </a>
-          </li>
-          <li>
-            <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
-              Logout
-            </a>
-          </li>
-          <form action="{% url 'logout' %}" method="POST" id="logout">
-            {% csrf_token %}
-            <input type="hidden">
-          </form>
-          {% else %}
-          <li {% if '/' == request.path %} {% else %} {% endif %}>
-            <a class="nav-link" href="{% url 'index' %}">Home</a>
-          </li>
-          <li {% if 'register' in request.path %}{% else %} {% endif %}>
-            <a class="nav-link" href="{% url 'register' %}">
-              Register</a>
-          </li>
-          <li {% if 'login' in request.path %} {% else %} {% endif %}>
-            <a class="nav-link" href="{% url 'login' %}">
-              Login</a>
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-    </nav>
-  </div>
-  <ul id="dropdown1" class="dropdown-content">
-    <li><a href="{% url 'classifier' %}">Care/Harm</a></li>
-    <li><a href="{% url 'classifierliberty' %}">Liberty/Oppression</a></li>
-    <li><a href="{% url 'classifierfairness' %}">Fairness/Cheating</a></li>
-    <li><a href="{% url 'classifierloyalty' %}">Loyalty/Betrayal</a></li>
-    <li><a href="{% url 'classifierauthority' %}">Authority/Subversion</a></li>
-    <li><a href="{% url 'classifiersanctity' %}">Sanctity/Degradation</a></li>
-  </ul>
-  <ul class="sidenav" id="mobile-demo">
-    {% if user.is_authenticated %}
-    <li>
-      <a href="{% url 'splash' %}" class="nav-link">
-        Home
-      </a>
-    </li>
-    <li>
-      <a class="dropdown-trigger" href="#!" data-target="dropdown1">
-        Foundations<i class="material-icons right">arrow_drop_down</i>
-      </a>
-    </li>
-    <li>
-      <a href="{% url 'profile' %}" class="nav-link">
-        Settings
-      </a>
-    </li>
-    <li>
-      <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
-        Logout
-      </a>
-    </li>
-    <form action="{% url 'logout' %}" method="POST" id="logout">
-      {% csrf_token %}
-      <input type="hidden">
-    </form>
-    {% else %}
-    <li {% if '/' == request.path %} {% else %} {% endif %}>
-      <a class="nav-link" href="{% url 'index' %}">Home</a>
-    </li>
-    <li {% if 'register' in request.path %}{% else %} {% endif %}>
-      <a class="nav-link" href="{% url 'register' %}">
-        Register</a>
-    </li>
-    <li {% if 'login' in request.path %} {% else %} {% endif %}>
-      <a class="nav-link" href="{% url 'login' %}">
-        Login</a>
-    </li>
-    {% endif %}
-  </ul>
-
-
-
   {% block content %}
+  <!--Place holder for content displayed from other pages-->
 
   {% endblock %}
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -127,17 +159,12 @@
   <script>
 
 
-    $('textarea').each(function () {
-      this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-    }).on('input', function () {
-      this.style.height = 'auto';
-      this.style.height = (this.scrollHeight) + 'px';
-    });
 
+    /* javascript for side nav funtion on mobile view*/
     $(document).ready(function () {
       $('.sidenav').sidenav();
     });
-
+    /* javascript for Modal funtion on other pages*/
     $(document).ready(function () {
       $('.modal').modal();
     });
@@ -157,11 +184,32 @@
       // Initialize materialize data picker
       $('.datepicker').datepicker({ 'format': 'yyyy-mm-dd' });
       $('select').formSelect();
-      $(".dropdown-trigger").dropdown();
-      $('.carousel').carousel();
+      $("select[required]").css({ display: "block", height: 0, padding: 0, width: 0, position: 'absolute' });
+      $(".dropdown-trigger").dropdown();// init dropdown fields
+      $('.carousel').carousel();//init carosel functions future functioality
 
     });
   </script>
+  <script>
+    // inits country drop down field in the profile and register pages
+    $(function () {
+      var $select1 = $('#ethnicity');
+
+      $select1.formSelect();
+      $select1.on('change', function (e) {
+
+        if (e.target.value == 'Other') {
+          $(this).replaceWith(`<label for="ethnicity">Please specify</label><input id="ethnicity" name="ethnicity" type="text" class="validate" /> `);
+          $(this, ".select-dropdown.dropdown-trigger").remove();
+          $(this, ".caret").remove();
+
+        }
+      });
+    })
+
+
+  </script>
+
   {% endblock javascript %}
 
 </body>

@@ -141,7 +141,8 @@ USE_TZ = True
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'  # 'https://storage.googleapis.com/classapp/static/'
+STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'classapp/static')
 ]
@@ -157,6 +158,7 @@ try:
 except ImportError:
     pass
 
+# Email Messages
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -164,6 +166,7 @@ EMAIL_HOST_USER = 'lee@ra2.io'
 EMAIL_HOST_PASSWORD = 'Redlined2000'
 EMAIL_PORT = 587
 
+# Google Recapcha Keys
 GOOGLE_RECAPTCHA_SECRET_KEY = '6LequLgUAAAAAJycNXJQ-bkFQh0u7APBmiGv3I1y'
 
 RECAPTCHA_SITE_KEY = "6LequLgUAAAAAHB34n7Oqv87N5KHhLXWcOQI1aPp"

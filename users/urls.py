@@ -1,8 +1,10 @@
+# imports Django path and include functions
 from django.urls import path, include
-from . import views
+from . import views  # imports the views.py file
+# imports autheriztion to use password change and reset forms
 from django.contrib.auth import views as auth_views
 
-
+# provides all the URL patterns for pages to be displayed when deployed
 urlpatterns = [
     path('', views.index, name='index'),
     path('Classifier', views.classifier, name='classifier'),

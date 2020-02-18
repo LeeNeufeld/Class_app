@@ -3,7 +3,6 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.core.validators import RegexValidator
 from questions.models import Questions
-from sentences.models import ClassSentence
 
 
 validate_caPostalCode = RegexValidator(
@@ -19,7 +18,7 @@ validate_auPostalCode = RegexValidator(
 class CareResponses(models.Model):
     question = models.TextField()
     sentence = models.TextField()
-    response = models.CharField(max_length=15, null=True)
+    response = models.TextField(null=True)
     userid = models.IntegerField(null=True)
     screen_name = models.CharField(max_length=100, null=True)
     age = models.IntegerField(null=True)
@@ -31,7 +30,7 @@ class CareResponses(models.Model):
 class FairResponses(models.Model):
     question = models.TextField()
     sentence = models.TextField()
-    response = models.CharField(max_length=15, null=True)
+    response = models.TextField(null=True)
     userid = models.IntegerField(null=True)
     screen_name = models.CharField(max_length=100, null=True)
     age = models.IntegerField(null=True)
@@ -43,7 +42,7 @@ class FairResponses(models.Model):
 class LoyResponses(models.Model):
     question = models.TextField()
     sentence = models.TextField()
-    response = models.CharField(max_length=15, null=True)
+    response = models.TextField(null=True)
     userid = models.IntegerField(null=True)
     screen_name = models.CharField(max_length=100, null=True)
     age = models.IntegerField(null=True)
@@ -55,7 +54,7 @@ class LoyResponses(models.Model):
 class AuthResponses(models.Model):
     question = models.TextField()
     sentence = models.TextField()
-    response = models.CharField(max_length=15, null=True)
+    response = models.TextField(null=True)
     userid = models.IntegerField(null=True)
     screen_name = models.CharField(max_length=100, null=True)
     age = models.IntegerField(null=True)
@@ -67,7 +66,7 @@ class AuthResponses(models.Model):
 class SanResponses(models.Model):
     question = models.TextField()
     sentence = models.TextField()
-    response = models.CharField(max_length=15, null=True)
+    response = models.TextField(null=True)
     userid = models.IntegerField(null=True)
     screen_name = models.CharField(max_length=100, null=True)
     age = models.IntegerField(null=True)
@@ -79,7 +78,7 @@ class SanResponses(models.Model):
 class LibResponses(models.Model):
     question = models.TextField()
     sentence = models.TextField()
-    response = models.CharField(max_length=15, null=True)
+    response = models.TextField(null=True)
     userid = models.IntegerField(null=True)
     screen_name = models.CharField(max_length=100, null=True)
     age = models.IntegerField(null=True)

@@ -1,3 +1,4 @@
+# this is the dependancy list to be loaded when app is deployed. this is done automatically as long as this file is here
 astroid==2.2.5
 cachetools==3.1.1
 certifi==2019.6.16
@@ -35,3 +36,4 @@ sqlparse==0.3.0
 typed-ast==1.4.0
 urllib3==1.25.3
 wrapt==1.11.1
+

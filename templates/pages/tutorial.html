@@ -1,7 +1,10 @@
+<!-- this page is seen when the user registers. Explains what the app does and provides info about Moral Foundations Theory-->
 {% extends 'base.html' %}
+<!--extends base.html file to populate navbar and globally used javascript and styling-->
 
 {% block content %}
-<div class="container">
+<!--Displays page content-->
+<div class="container mob">
   <div class="row">
     <div class="col s12">
       <div class="card">
@@ -14,6 +17,7 @@
                     readonly>The purpose of this app is to have you classify sentences based on the principles of moral foundation theory. The theory is a social psychological theory intended to explain the origins of and variation in human moral reasoning on the basis of innate, modular foundations. The theory proposes six foundations as listed below. To learn more about Moral Foundations Theory you can also click the link. </textarea>
                   <a class="blue-text center" href="https://moralfoundations.org/"
                     target="_blank">www.moralfoundations.org</a>
+                  <!--Link to moral foundations webpage-->
                 </div>
               </div>
             </form>
@@ -23,47 +27,54 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container ">
     <div class="row">
       <div class="col s12 center">
         <button data-target="ModalF1"
-          class="btn-large waves-effect waves-light indigo lighten-3 col s12 modal-trigger">Care/Harm</button>
+          class="btn-large waves-effect waves-light pink col s12 modal-trigger">Care/Harm</button>
+        <!--Modal Trigger that activates a modal with more info about the CARE/HARM Foundation-->
       </div>
     </div>
     <div class="row">
       <div class="col s12 center">
         <button data-target="ModalF2"
-          class="btn-large indigo lighten-3 waves-effect waves-light col s12 modal-trigger">Fairness/Cheating</button>
+          class="btn-large orange waves-effect waves-light col s12 modal-trigger">Fairness/Cheating</button>
+        <!--Modal Trigger that activates a modal with more info about the Fairness/Cheating Foundation-->
       </div>
     </div>
     <div class="row">
       <div class="col s12 center">
         <button data-target="ModalF3"
-          class="btn-large waves-effect waves-light indigo lighten-3 col s12 modal-trigger">Loyalty/Betrayal</button>
+          class="btn-large waves-effect waves-light blue darken-4 col s12 modal-trigger">Loyalty/Betrayal</button>
+        <!--Modal Trigger that activates a modal with more info about the Loyalty/Betrayal Foundation-->
       </div>
     </div>
     <div class="row">
       <div class="col s12 center">
         <button data-target="ModalF4"
-          class="btn-large indigo lighten-3 col s12 waves-effect waves-light modal-trigger">Authority/Subversion</button>
+          class="btn-large black white-text col s12 waves-effect waves-light modal-trigger">Authority/Subversion</button>
+        <!--Modal Trigger that activates a modal with more info about the Authority/Subversio Foundation-->
       </div>
     </div>
     <div class="row">
       <div class="col s12 center">
         <button data-target="ModalF5"
-          class="btn-large indigo lighten-3 col s12 waves-effect waves-light modal-trigger">Sanctity/Degradation</button>
+          class="btn-large purple lighten-3 col s12 waves-effect waves-light modal-trigger">Sanctity/Degradation</button>
+        <!--Modal Trigger that activates a modal with more info about the Sanctity/Degradation Foundation-->
       </div>
     </div>
     <div class="row">
       <div class="col s12 center">
         <button data-target="ModalF6"
-          class="btn-large indigo lighten-3 col s12 waves-effect waves-light modal-trigger">Liberty/Oppression</button>
+          class="btn-large light-blue lighten-3 col s12 waves-effect waves-light modal-trigger">Liberty/Oppression</button>
+        <!--Modal Trigger that activates a modal with more info about the Liberty/Oppression Foundation-->
       </div>
     </div>
     <div class="row">
       <div class="col s12 center">
         <button data-target="ModalN"
           class="btn-large grey lighten-1 waves-effect waves-light col s12 modal-trigger">Next</button>
+        <!--Directs user to the next page of the tutorial-->
       </div>
     </div>
   </div>
@@ -74,6 +85,7 @@
 
 
   <div id="ModalF1" class="modal">
+    <!--Modal that explains Moral foundation-->
     <div class="modal-content">
       <h5>Care/Harm</h5>
       <p> This foundation is related to our long evolution as mammals with attachment systems and an ability to feel
@@ -85,6 +97,7 @@
   </div>
 
   <div id="ModalF2" class="modal">
+    <!--Modal that explains Moral foundation-->
     <div class="modal-content">
       <h5>Fairness/cheating</h5>
       <p> This foundation is related to the evolutionary process of reciprocal altruism. It generates ideas of
@@ -97,6 +110,7 @@
   </div>
 
   <div id="ModalF3" class="modal">
+    <!--Modal that explains Moral foundation-->
     <div class="modal-content">
       <h5>Loyalty/betrayal</h5>
       <p> This foundation is related to our long history as tribal creatures able to form shifting coalitions. It
@@ -110,6 +124,7 @@
   </div>
 
   <div id="ModalF4" class="modal">
+    <!--Modal that explains Moral foundation-->
     <div class="modal-content">
       <h5>Authority/subversion</h5>
       <p> This foundation was shaped by our long primate history of hierarchical social interactions. It underlies
@@ -122,6 +137,7 @@
   </div>
 
   <div id="ModalF5" class="modal">
+    <!--Modal that explains Moral foundation-->
     <div class="modal-content">
       <h5>Sanctity/degradation</h5>
       <p> This foundation was shaped by the psychology of disgust and contamination. It underlies religious notions
@@ -136,6 +152,7 @@
   </div>
 
   <div id="ModalF6" class="modal">
+    <!--Modal that explains Moral foundation-->
     <div class="modal-content">
       <h5>Liberty/oppression</h5>
       <p> This foundation is about the feelings of reactance and resentment people feel toward those who dominate
@@ -152,6 +169,7 @@
   </div>
 
   <div id="ModalN" class="modal">
+    <!--Modal that explains Moral foundation-->
     <div class="modal-content">
       <p> So now for the million dollar question…… WHAT ARE YOU SUPPOSED TO DO?! Well that's simple, and we’ll go
         through it together.</p>

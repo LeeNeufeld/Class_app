@@ -1,79 +1,120 @@
+<!--This Page allows users to classify sentences towards the Authority/Subversion Foundation-->
+<!--This page uses the Materialize dependancy for all UX variables and styling-->
+<!--All input data is saved to the DB through the queries defined in the views file-->
 {% extends 'base.html' %}
+<!--extends the Base.html to populate the navbar and extend globally used javascript and styling-->
 
 {% block content %}
-<div class="container">
+<!--Displays page content-->
+<div class="container con1">
   <form action="{% url 'classifierauthority' %}" method="POST" id="classifier4">
 
     {% csrf_token %}
+    <!--Implements Django encription token to secure data going in and out of the site-->
     {% if question %}
-    <div class="card-panel">
-      <div class="row">
-        <div class="col s12">
-          <div class="input-field col s12">
-            <textarea class="materialize-textarea" name="question" id="question"
-              readonly>{{ question.question }}</textarea>
-          </div>
-        </div>
+    <!--If statement to check DB for avaliable question to display-->
+
+    <div class="col s12">
+      <div class="input-field col s12">
+        <textarea class="materialize-textarea flow-text" name="question" id="question"
+          readonly>{{ question.question }}</textarea>
+        <!--Display question based on the question query in the views.py file-->
+        <input type="hidden" name="questionid" id="questionid" value="{{question.id}}">
+        <!--populates question id to save with the user response -->
       </div>
     </div>
 
+
     {% else %}
+    <!-- If no questions then this text is shown-->
     <div class="col s12">
       <p>No Questions</p>
     </div>
     {% endif %}
-    {% if random_objects %}
-    {% for random_object in random_objects %}
-    <div class="card-panel">
-      <div class="row">
-        <div class="col s12">
-          <div class="input-field col s12">
-            <textarea name="random_object" class="materialize-textarea flow-text" id="sentence"
-              readonly>{{ random_object.sentence }}</textarea>
-          </div>
+    <!-- If statement to display the selected sentence based on the csentences query on the views.py file-->
+    {% if csentences %}
+    <!--Checks csentences query first for sentence to populate-->
+    {% for csentence in csentences %}
+    <div class="card-panel c2">
+      <div class="col s12">
+        <div class="input-field col s12">
+          <textarea name="nsentence" id="nsentence" class=" materialize-textarea flow-text"
+            readonly>{{ csentence.sentence }}</textarea>
+          <!--If sentence is found this will display that sentence-->
+          <input type="hidden" name="sentenceid" id="sentenceid" value="{{csentence.sentenceid}}">
+          <!--pulls through the sentence id of the selected sentence to save in the DB with the response-->
         </div>
       </div>
     </div>
 
     {% endfor %}
+
     {% else %}
-    <div class="col s12">
-      <p>No Sentences</p>
+    <!--Else statement to display a sentence based on the nsentence query if there is not a csentence avaliable-->
+    {% for nsentence in nsentences %}
+    <!--checks nsentence query for avalible sentence-->
+    <div class="card-panel c2">
+      <div class="col s12">
+        <div class="input-field col s12">
+          <textarea name="nsentence" id="nsentence" class=" materialize-textarea flow-text"
+            readonly>{{ nsentence.sentence }}</textarea>
+          <!--displays selected sentence based on DB query-->
+          <input type="hidden" name="sentenceid" id="sentenceid" value="{{nsentence.sentenceid}}">
+          <!--pulls sentence id of the selected sentence-->
+        </div>
+      </div>
     </div>
+
+    {% endfor %}
     {% endif %}
-    <input type="hidden" name="userid" value="{{ user_id}}">
+
+    <!--Pull current user demographic infomation to store with response-->
+    <input type="hidden" name="userid" value="{{ user_id }}">
     <input type="hidden" name="age" value="{{ age }}">
     <input type="hidden" name="gender" value="{{ gender }}">
     <input type="hidden" name="postal_code" value="{{ postal_code }}">
+    <input type="hidden" name="income" value="{{ income }}">
+    <input type="hidden" name="ethncity" value="{{ ethncity }}">
+    <input type="hidden" name="nationality" value="{{ nationality }}">
+    <input type="hidden" name="urbanization" value="{{ urbanization }}">
+    <input type="hidden" name="religion" value="{{ religion }}">
     <input type="hidden" name="country" value="{{ country }}">
-    <input type="hidden" name="screen_name" value="{{ screen_name }}">
+    <input type="hidden" name="educational_attainment" value="{{ educational_attainment }}">
 
   </form>
 </div>
-
 <div class="container">
   <div class="maybe">
     <div class="row">
       <div class="col s12 center">
         <button form="classifier4" class="btn col s12 grey lighten-1 waves-effect waves-light" type="submit"
-          name="response" value="Unsure">Unsure </button>
+          name="classification" value="Unsure">Unsure </button>
+        <!--Saves unsure classification in the DB-->
       </div>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="response">
-    <button form="classifier4" class="btn green waves-effect waves-light" type="submit" name="response" value="Yes">
+    <button form="classifier4" class="btn grey darken-4 waves-effect waves-light" type="submit" name="classification"
+      value="Authority">
+      <!-- saves Authority classification in the DB-->
       <div>
-        <i class=" material-icons">check_circle_outline</i>
-        <span>YES</span>
+        <span class=" r1 ">AUTHORITY</span>
       </div>
     </button>
-
-    <button form="classifier4" class="btn red waves-effect waves-light" type="submit" name="response" value="No">
+    <button form="classifier4" class="btn red waves-effect waves-light" type="submit" name="classification"
+      value="Neither">
+      <!--Saves Either classification in the DB-->
       <div>
-        <i class=" material-icons">highlight_off</i>
-        <span>NO</span>
+        <span class="r2">NEITHER</span>
+      </div>
+    </button>
+    <button form="classifier4" class="btn grey lighten-2 waves-effect waves-light " type="submit" name="classification"
+      value="Subversion">
+      <!--Saves subversion classification in the DB-->
+      <div>
+        <span class=" r3 black-text ">SUBVERSION</span>
       </div>
     </button>
   </div>

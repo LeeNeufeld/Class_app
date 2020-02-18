@@ -1,7 +1,10 @@
+<!--Displays login form for user to login-->
 {% extends 'base.html' %}
+<!--Extends the Base.html page to populate the navbar, globally used javascript and styling-->
 
 {% block content %}
-<section id="login" class="py-5">
+<!--Display page content-->
+<section id="login" class="py-5 mob">
   <div class="container">
     <div class="row"></div>
     <div class="row">
@@ -11,7 +14,9 @@
             <h5> Login</h5>
             <div class="row">
               <form action="{% url 'login' %}" method="POST">
+                <!--Login Form-->
                 {% csrf_token %}
+                <!--Security Token for Django encription-->
                 <div class="input-field col s12">
                   <label for="email">Email</label>
                   <input type="email" name="username" class="validate">
@@ -27,8 +32,9 @@
                     Login
                   </button>
                 </div>
-                <div class="col s6">
+                <div class="col s6" style="padding-top: 8px;">
                   <a class="blue-text " href="{% url 'password_reset' %}"> Forgot Password? </a>
+                  <!--Link to reset password-->
                 </div>
               </form>
             </div>
@@ -46,3 +52,4 @@
 
 
 {% endblock %}
+<!--End page display area-->

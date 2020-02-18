@@ -1,6 +1,9 @@
+<!--This page mimics the actul dashboard to show users how to use the app-->
 {% extends 'base.html' %}
+<!--extends base.html file to populate navbar-->
 
 {% block content %}
+<!--displays page content-->
 
 
 
@@ -8,49 +11,52 @@
   <div class="row"></div>
   <div class="row col s12 center">
     <button data-target="M1" class="waves-effect waves-light btn pulse modal-trigger">
+      <!--Button to trigger modal to begin tutorial instructions-->
       Begin
     </button>
   </div>
 </div>
 
 
-<div class="container">
+<div class="container mob">
   <div class=" row col s12 center">
-    <button class="btn-large col s12 indigo lighten-3">
+    <button class="btn-large col s12 pink">
       Care/Harm
     </button>
   </div>
   <div class=" row col s12 center">
-    <button class="btn-large col s12 indigo lighten-3">
+    <button class="btn-large col s12 orange">
       Fairness/Cheating
     </button>
   </div>
   <div class=" row col s12 center">
-    <button class="btn-large col s12 indigo lighten-3">
+    <button class="btn-large col s12 blue darken-4">
       Loyalty/Betrayal
     </button>
   </div>
   <div class=" row col s12 center">
-    <button class="btn-large col s12 indigo lighten-3">
+    <button class="btn-large col s12 black white-text">
       Authority/Subversion
     </button>
   </div>
   <div class=" row col s12 center">
-    <button class="btn-large col s12 indigo lighten-3 waves-effect waves-light"><a href="{% url 'tutorial2' %}">
+    <button class="btn-large col s12 purple lighten-3 waves-effect waves-light"><a href="{% url 'tutorial2' %}">
         Sanctity/Degradation
+        <!--button will take user to the next stage of the tutorial-->
       </a></button>
   </div>
   <div class=" row col s12 center">
-    <button class="btn-large col s12 indigo lighten-3">
+    <button class="btn-large col s12 light-blue lighten-3">
       Liberty/Oppression
     </button>
   </div>
 </div>
 
+<!--Modal triggered to provide user with instructions-->
 <div id="M1" class="modal">
   <div class="modal-content">
     <div class=" row col s12 center">
-      <button class="btn-large col s12 indigo lighten-3 waves-effect waves-light"><a href="{% url 'tutorial2' %}">
+      <button class="btn-large col s12 purple lighten-3 waves-effect waves-light"><a href="{% url 'tutorial2' %}">
           Sanctity/Degradation
         </a></button>
     </div>

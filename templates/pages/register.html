@@ -1,9 +1,12 @@
+<!--This page populates an empty user registration form to have user fill out and save to DB-->
 {% extends 'base.html' %}
+<!--extends base.html file to populate navbar and globally used javascript and styling-->
 
 {% block content %}
+<!--Display page content-->
 <script src='https://www.google.com/recaptcha/api.js?render=6LequLgUAAAAAHB34n7Oqv87N5KHhLXWcOQI1aPp'></script>
 <!-- Registration Form -->
-<section id="login" class="py-5">
+<section id="login" class="py-5 mob">
   <div class="container">
     <div class="row"></div>
     <div class="row">
@@ -15,28 +18,35 @@
             </h5>
             <form action="{% url 'register' %}" method="POST" id="form">
               {% csrf_token %}
+              <!--Display page content-->
               <div class="input-field col s12">
-                <input type="text" name="first_name" required>
+                <input type="text" name="first_name" required="required">
+                <!--Name input field-->
                 <label for="first_name">First Name</label>
               </div>
               <div class="input-field col s12">
-                <input type="text" name="last_name" required>
+                <input type="text" name="last_name" required="required">
+                <!--Name input field-->
                 <label for="last_name">Last Name</label>
               </div>
               <div class="input-field col s12">
-                <input type="text" name="screen_name" required>
+                <input type="text" name="screen_name" required="required">
+                <!--Screen Name input field-->
                 <label for="screen_name">Username</label>
               </div>
               <div class="input-field col s12">
-                <input type="email" name="email" required>
+                <input type="email" name="email" required="required">
+                <!--Email input field-->
                 <label for="email">Email</label>
               </div>
               <div class="input-field col s12">
-                <input type="email" name="username" required>
+                <input type="email" name="username" required="required">
+                <!--validates email entered in previous field input field-->
                 <label for="username">Confirm Email</label>
               </div>
               <div class="input-field col s12">
-                <select name="gender">
+                <select name="gender" required="required" class="validate">
+                  <!--Gender dropdown select-->
                   <option value="" disabled selected>---</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
@@ -45,24 +55,35 @@
                 <label for="gender">Gender</label>
               </div>
               <div class="input-field col s12">
-                <select name="education_attainment">
+                <select name="education_attainment" required="required" class="validate">
+                  <!--Education drop down select-->
                   <option value="" disabled selected>---</option>
-                  <option value="Some high school">Some high school</option>
-                  <option value="High school diploma or equivalent">High school diploma or equivalent</option>
-                  <option value="Trades certification">Trades certification</option>
-                  <option value="College diploma">College diploma</option>
-                  <option value="Bachelor’s degree">Bachelor’s degree</option>
-                  <option value="Graduate degree">Graduate degree</option>
-                  <option value="Professional degree">Professional degree</option>
+                  <option value="No high school diploma or equivalent">No high school diploma or equivalent</option>
+                  <option value="High school (secondary school) diploma or equivalent">High school (secondary school)
+                    diploma or equivalent</option>
+                  <option
+                    value="Certificate of Apprenticeship or Certificate of Qualification or other trades certificate or diploma">
+                    Certificate of Apprenticeship or Certificate of Qualification or other trades certificate or diploma
+                  </option>
+                  <option value="College, CEGEP or other non-university certificate or diploma">College, CEGEP or other
+                    non-university certificate or diploma</option>
+                  <option value="University certificate, diploma or degree at the bachelor level or below">University
+                    certificate, diploma or degree at the bachelor level or below</option>
+                  <option
+                    value="Degree in medicine, dentistry, veterinary medicine or optometry (M.D., D.D.S., D.M.D., D.V.M., O.D.), master's degree (e.g., M.A., M.Sc., M.Ed., M.B.A.) or earned doctorate (e.g., Ph.D.)">
+                    Degree in medicine, dentistry, veterinary medicine or optometry (M.D., D.D.S., D.M.D., D.V.M.,
+                    O.D.), master's degree (e.g., M.A., M.Sc., M.Ed., M.B.A.) or earned doctorate (e.g., Ph.D.)</option>
                 </select>
                 <label for="education_attainment">Education Attainment</label>
               </div>
               <div class="input-field col s12">
-                <select id="year" name="age"></select>
+                <select id="year" name="age" required="required"></select>
+                <!--Year of birth drop down select. this is pulled from javascript funstion that is defined on the base.html page to prevent hard coding in form-->
                 <label for="age">Year of birth</label>
               </div>
               <div class="input-field col s12">
-                <select name="income">
+                <select name="income" class="validate" required="required">
+                  <!--Income drop down select-->
                   <option value="" disabled selected>---</option>
                   <option value="$0 - $34,999">$0 - $34,999</option>
                   <option value="$35,000 - $49,999">$35,000 - $49,999</option>
@@ -75,7 +96,22 @@
                 <label for="income">Income</label>
               </div>
               <div class="input-field col s12">
-                <select id="country" name="country">
+                <select id="urbanization" name="urbanization" required="required" class="validate ">
+                  <!--Urbanization drop down select-->
+                  <option value="" disabled selected>---</option>
+                  <option value="Large urban centre (population 100,000 or more)">Large urban centre (population 100,000
+                    or more)</option>
+                  <option value="Medium population centres (population 30,000 to 99,999)">Medium population centres
+                    (population 30,000 to 99,999)</option>
+                  <option value="Small population centres (population 1,000 to 29,999)">Small population centres
+                    (population 1,000 to 29,999)</option>
+                  <option value="Rural Area">Rural Area</option>
+                </select>
+                <label for="urbanization">Urbanization</label>
+              </div>
+              <div class="input-field col s12">
+                <select id="country" name="country" required="required" class="validate ">
+                  <!--Country drop down select-->
                   <option value="" disabled selected>---</option>
                   <option value="Canada">Canada</option>
                   <option value="USA">USA</option>
@@ -90,28 +126,76 @@
               </div>
               <div class="input-field col s12">
                 {% load countries %}
+                <!--loads the Django country list dependancy. This allows for a full country list with out the need to hard code it. -->
                 {% get_countries as countries %}
-                <select name="nationality">
+                <!--Converts the get_countries function to countries for the views.py file to see this defenition-->
+                <select name="nationality" required="required" class="validate change_select_to_text_on_other">
                   <option value="" disabled selected>---</option>
                   {% for country in countries %}
+                  <!--Checks dependancy for country list and populates in dropdown list in the form-->
                   <option value="{{ country.code }}">{{ country.name }}</option>
                   {% endfor %}
                 </select>
                 <label for="nationality">Nationality</label>
               </div>
               <div class="input-field col s12">
-                <input type="text" name="ethnicity">
+                <select id="ethnicity" name="ethnicity" class="validate">
+                  <!--eitnicity drop down select-->
+                  <option value="" disabled selected>---</option>
+                  <option value="White">White</option>
+                  <option value="South Asian (e.g., East Indian, Pakistani, Sri Lankan, etc.)">South Asian (e.g., East
+                    Indian, Pakistani, Sri Lankan, etc.)</option>
+                  <option value="Chinese">Chinese</option>
+                  <option value="Black">Black</option>
+                  <option value="Filipino">Filipino</option>
+                  <option value="Latin American">Latin American</option>
+                  <option value="Arab">Arab</option>
+                  <option value="Southeast Asian (e.g., Vietnamese, Cambodian, Laotian, Thai, etc.)">Southeast Asian
+                    (e.g., Vietnamese, Cambodian, Laotian, Thai, etc.)</option>
+                  <option value="West Asian (e.g., Iranian, Afghan, etc.)">West Asian (e.g., Iranian, Afghan, etc.)
+                  </option>
+                  <option value="Korean">Korean</option>
+                  <option value="Japanese">Japanese</option>
+                  <option value="Other">Other</option>
+                </select>
                 <label for="ethnicity">Ethnicity</label>
               </div>
               <div class="input-field col s12">
-                <input type="password" name="password" required>
+                <select id="religion" name="religion" required="required" class="validate ">
+                  <!--Religion drop down select-->
+                  <option value="" disabled selected>---</option>
+                  <option value="Buddhist">Buddhist</option>
+                  <optgroup label="Christian">
+                    <option value="Anglican">Anglican</option>
+                    <option value="Baptist">Baptist</option>
+                    <option value="Catholic">Catholic</option>
+                    <option value="Christian Orthodox">Christian Orthodox</option>
+                    <option value="Lutheran">Lutheran</option>
+                    <option value="Pentecostal">Pentecostal</option>
+                    <option value="Presbyterian">Presbyterian</option>
+                    <option value="United Church">United Church</option>
+                    <option value="Other Christian">Other Christian</option>
+                  </optgroup>
+                  <option value="Hindu">Hindu</option>
+                  <option value="Jewish">Jewish</option>
+                  <option value="Muslim">Muslim</option>
+                  <option value="Sikh">Sikh</option>
+                  <option value="Traditional (Aboriginal) Spirituality">Traditional (Aboriginal) Spirituality</option>
+                  <option value="Other religions	">Other religions </option>
+                  <option value="No religious affiliation">No religious affiliation</option>
+                </select>
+                <label for="religion">Religious affiliation prior to age 15</label>
+              </div>
+              <div class="input-field col s12">
+                <input type="password" name="password" required="required">
                 <label for="password">Password</label>
               </div>
               <div class="input-field col s12">
-                <input type="password" name="password2" required>
+                <input type="password" name="password2" required="required">
                 <label for="password2">Confirm Password</label>
               </div>
               <input type="hidden" name="g-recaptcha-response" id='recaptcha'>
+              <!--Displays the Rcaptcha logo and implements recapcha in page background-->
               <button type="submit" value="Register" class=" btn indigo lighten-3 waves-effect waves-light"
                 href="{% url 'tutorial' %}">Register</button>
             </form>
@@ -123,10 +207,12 @@
 </section>
 
 <script>
+  /*Javascript function to init materialize on drop down fields*/
   document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems, options);
   });
+  /*Javascript function to init year list on date of birth drop down field*/
   var start = new Date().getFullYear();
   var end = 1900;
   var options = "";
@@ -136,13 +222,19 @@
   document.getElementById("year").innerHTML = options;
 </script>
 <script>
+  /*Javascript function to init recapcha on page*/
   grecaptcha.ready(function () {
     grecaptcha.execute('6LequLgUAAAAAHB34n7Oqv87N5KHhLXWcOQI1aPp', { action: 'signup' })
       .then(function (token) {
         document.getElementById("form").appendChild(document.CreateElement(`<input type="hidden" name="g-recaptcha-response" value=${token}`));
       });
   });
+
+
+
 </script>
+
+
 
 
 {% endblock %}
